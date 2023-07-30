@@ -1,0 +1,377 @@
+/* _content/NutriApp/Pages/index.razor.rz.scp.css */
+
+
+#myHeading[b-b1acyx7gi3] {
+    color: white;
+}
+
+/* Add some styles for the chat container */
+.main-container[b-b1acyx7gi3] {
+    background: white;
+    width: 100%; /* Set the width to 100% */
+    height: 100%; /* Set the height to 100% */
+    padding: 10px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow-y: auto; /* Enable the scroll bar */
+
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Add some shadow */
+}
+
+.chat-container[b-b1acyx7gi3] {
+    background: white;
+    width: 95%; /* Set the width to 95% of the browser window */
+    flex-basis: 95%; /* Set the initial flex size to 95% of the parent */
+    min-height: 80vh; /* Set a minimum height for the chat container */
+    max-height: 95vh; /* Set a maximum height for the chat container based on the viewport */
+    margin: 2.5% auto; /* Center the chat container vertically and horizontally */
+    padding: 20px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; /* Align chat messages at the bottom */
+    overflow-y: auto; /* Enable the scroll bar */
+    position: relative; /* Set position relative for children positioning */
+}
+
+.chat-messages-container[b-b1acyx7gi3] {
+    flex-grow: 1; /* Allow the container to grow vertically */
+    overflow-y: auto; /* Enable the scroll bar */
+    border-radius: 5px;
+}
+
+/* Add some styles for the user input container */
+.user-input-container[b-b1acyx7gi3] {
+    /* Use flex display and column direction */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center the items horizontally */
+}
+
+/* Add a new class for the buttons container */
+.buttons-container[b-b1acyx7gi3] {
+    /* Use flex display and row direction */
+    display: flex;
+    flex-direction: row;
+    align-items: center; /* Center the items vertically */
+    width: 100%; /* Set the width to 100% of the parent */
+}
+
+/* Add a new class for the clear button container */
+.clear-button-container[b-b1acyx7gi3] {
+    /* Use flex display and row direction */
+    display: flex;
+    flex-direction: row;
+    align-items: center; /* Center the items vertically */
+    justify-content: flex-start; /* Align the items to the left */
+    margin-left: 10px; /* Add some margin to the left */
+    flex-basis: 50px; /* Set a fixed size for the clear button container */
+}
+
+/* Add a new class for the user input and send button container */
+.user-input-and-send-button-container[b-b1acyx7gi3] {
+    /* Use flex display and row direction */
+    display: flex;
+    flex-direction: row;
+    align-items: center; /* Center the items vertically */
+    justify-content: flex-end; /* Align the items to the right */
+    flex: 2; /* Allow the container to grow horizontally */
+    margin-right: 10px; /* Add some margin to the right */
+    flex-basis: 0; /* Allow the input and send button container to grow as much as possible */
+    margin-left: 20px; /* Add some margin to separate from the clear button container */
+}
+
+.chat-messages[b-b1acyx7gi3] {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    border-radius: 5px;
+}
+
+.user-message[b-b1acyx7gi3] {
+    margin-left: auto;
+    text-align: right;
+    background-color: #a2c4e6;
+    border-radius: 15px 0 15px 15px;
+    margin-bottom: 10px;
+    color: white;
+    max-width: 70%; /* Limit the width of the message */
+    word-break: break-word; /* Break long words */
+    padding: 10px; /* Add some padding */
+    position: relative; /* Set position relative for the time */
+}
+
+    .user-message pre[b-b1acyx7gi3] {
+        color: white !important; /* Override the global rule for pre tag */
+        font-family: Arial, Helvetica, sans-serif !important; /* Set the same font as the bot message */
+        font-size: 16px !important; /* Increase the font size */
+        margin: 0 !important; /* Remove the margin */
+    }
+
+.user-time[b-b1acyx7gi3] {
+    position: absolute; /* Position the time absolutely */
+    bottom: -20px; /* Place it below the message */
+    right: 0; /* Align it to the right */
+    font-size: 12px; /* Adjust the font size */
+    color: #a2c4e6; /* Set the color */
+}
+
+/* Add some styles for the upload button */
+.upload-button[b-b1acyx7gi3] {
+    color: white; /* Set the text color to white */
+    background-color: #689cd2; /* Set the background color to the blue shade */
+    border: none; /* Remove the border */
+    border-radius: 5px; /* Add border radius */
+    font-size: 12px; /* Adjust the font size */
+    padding: 8px 10px; /* Adjust the padding */
+    margin-left: 5px; /* Add some margin to the left */
+    margin-right: 10px; /* Add some margin to the right */
+    cursor: pointer; /* Change the cursor to pointer */
+    overflow: hidden; /* Hide the input element */
+    position: relative; /* Set position relative for the input element */
+}
+
+    .upload-button:hover[b-b1acyx7gi3] {
+        background-color: #436f9c; /* Change the background color on hover */
+    }
+
+    .upload-button:disabled[b-b1acyx7gi3] {
+        background-color: #c5cfd9; /* Change the background color when disabled */
+        cursor: not-allowed; /* Change the cursor to not allowed */
+    }
+
+    .upload-button input[b-b1acyx7gi3] {
+        display: block; /* Show the input element */
+        width: 100%; /* Set the width to 100% */
+        height: 100%; /* Set the height to 100% */
+        opacity: 0; /* Make the input element transparent */
+        position: absolute; /* Position the input element absolutely */
+        top: 0; /* Align the input element to the top */
+        left: 0; /* Align the input element to the left */
+    }
+
+/* Add some styles for the button element */
+.btn[b-b1acyx7gi3] {
+    width: 40px; /* Set a fixed width for the button */
+    height: 40px; /* Set a fixed height for the button */
+    margin-left: 10px; /* Add some margin to the left */
+}
+
+    /* Add some styles for the icon element */
+    .btn i[b-b1acyx7gi3] {
+        color: white; /* Set the color to white */
+        font-size: 20px; /* Adjust the font size */
+        vertical-align: middle; /* Align the icon vertically */
+    }
+
+.bot-message[b-b1acyx7gi3] {
+    margin-right: auto;
+    text-align: left;
+    background-color: #c5cfd9;
+    border-radius: 0 15px 15px 15px;
+    margin-bottom: 10px;
+    word-break: break-word;
+    max-width: 70%; /* Limit the width of the message */
+    padding: 10px; /* Add some padding */
+    position: relative; /* Set position relative for the time */
+}
+
+.bot-message-text[b-b1acyx7gi3] {
+    white-space: pre-wrap; /* Preserve the white space and wrap */
+}
+
+    .bot-message-text ul[b-b1acyx7gi3] {
+        list-style-type: disc; /* Use discs for bullet points */
+        margin: 0; /* Remove margin */
+        padding-left: 20px; /* Add some padding to the left */
+    }
+
+    .bot-message-text li[b-b1acyx7gi3] {
+        margin-bottom: 3px; /* Add some margin to the bottom */
+    }
+
+.bot-time[b-b1acyx7gi3] {
+    position: absolute; /* Position the time absolutely */
+    bottom: -20px; /* Place it below the message */
+    left: 0; /* Align it to the left */
+    font-size: 12px; /* Adjust the font size */
+    color: #c5cfd9; /* Set the color */
+}
+
+/* Add styles for the loading icon */
+.loading-icon[b-b1acyx7gi3] {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px;
+}
+
+    .loading-icon i[b-b1acyx7gi3] {
+        color: #689cd2;
+        font-size: 2rem;
+        margin-right: 10px;
+    }
+
+    .loading-icon span[b-b1acyx7gi3] {
+        color: #689cd2;
+        font-size: 1.5rem;
+    }
+
+/* Add some styles for the user input section */
+.user-input[b-b1acyx7gi3] {
+    flex: 1; /* Allow the input to grow horizontally */
+    margin-right: 10px; /* Add some margin to the right */
+}
+    /* Add some styles for the input chat bar */
+    .user-input .form-control[b-b1acyx7gi3] {
+        border-radius: 20px; /* Add some border radius to the input */
+        margin: 0 auto; /* Center the input */
+    }
+
+/* Add some styles for the send button */
+.send-button[b-b1acyx7gi3] {
+    color: white; /* Set the text color to white */
+    background-color: #689cd2; /* Set the background color to the blue shade */
+    border: none; /* Remove the border */
+    border-radius: 5px; /* Add border radius */
+    font-size: 12px; /* Adjust the font size */
+    padding: 8px 10px; /* Adjust the padding */
+    margin-left: 5px; /* Add some margin to the left */
+    margin-right: 5px; /* Add some margin to the right */
+    cursor: pointer; /* Change the cursor to pointer */
+}
+
+    .send-button:hover[b-b1acyx7gi3] {
+        background-color: #436f9c; /* Change the background color on hover */
+    }
+
+    .send-button:disabled[b-b1acyx7gi3] {
+        background-color: #c5cfd9; /* Change the background color when disabled */
+        cursor: not-allowed; /* Change the cursor to not allowed */
+    }
+
+/* Add some styles for the clear button */
+.clear-button[b-b1acyx7gi3] {
+    color: white; /* Set the text color to white */
+    background-color: #dd5d5d; /* Set the background color to red */
+    border: none; /* Remove the border */
+    border-radius: 20px; /* Add border radius */
+    font-size: 12px; /* Adjust the font size */
+    padding: 8px 10px; /* Adjust the padding */
+    cursor: pointer; /* Change the cursor to pointer */
+}
+
+    .clear-button:hover[b-b1acyx7gi3] {
+        background-color: #b53636; /* Change the background color on hover */
+    }
+
+.button-icon[b-b1acyx7gi3] {
+    margin-right: 5px; /* Add some margin to the right */
+}
+
+/* Add some styles for the custom upload button icon */
+.custom-upload-icon[b-b1acyx7gi3] {
+    color: white; /* Set the color to white */
+    font-size: 20px; /* Adjust the font size */
+    background-color: #689cd2; /* Set the background color to the blue shade */
+    border: none; /* Remove the border */
+    border-radius: 5px; /* Add border radius */
+    padding: 10px; /* Adjust the padding */
+    margin-left: 5px; /* Add some margin to the left */
+    margin-right: 10px; /* Add some margin to the right */
+    cursor: pointer; /* Change the cursor to pointer */
+    position: relative; /* Set position relative for the input element */
+    overflow: hidden; /* Hide the input element */
+}
+
+/* Add some styles for the custom upload button label */
+.custom-upload-label[b-b1acyx7gi3] {
+    color: white; /* Set the color to white */
+    font-size: 12px; /* Adjust the font size */
+    margin-left: 5px; /* Add some margin to the left */
+}
+
+/* Add some styles for the original input element */
+.input-file-element[b-b1acyx7gi3] {
+    display: block; /* Show the input element */
+    width: 100%; /* Set the width to 100% */
+    height: 100%; /* Set the height to 100% */
+    opacity: 0; /* Make the input element transparent */
+    position: absolute; /* Position the input element absolutely */
+    top: 0; /* Align the input element to the top */
+    left: 0; /* Align the input element to the left */
+}
+/* _content/NutriApp/Shared/MainLayout.razor.rz.scp.css */
+.page[b-u8nqqz512b] {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+main[b-u8nqqz512b] {
+    flex: 1;
+}
+
+.sidebar[b-u8nqqz512b] {
+    background-image: linear-gradient(180deg, rgb(5, 39, 103) 0%, #3a0647 70%);
+}
+
+.top-row[b-u8nqqz512b] {
+    background-color: #f7f7f7;
+    border-bottom: 1px solid #d6d5d5;
+    justify-content: flex-end;
+    height: 3.5rem;
+    display: flex;
+    align-items: center;
+}
+
+    .top-row[b-u8nqqz512b]  a, .top-row .btn-link[b-u8nqqz512b] {
+        white-space: nowrap;
+        margin-left: 1.5rem;
+    }
+
+    .top-row a:first-child[b-u8nqqz512b] {
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+@media (max-width: 640.98px) {
+    .top-row:not(.auth)[b-u8nqqz512b] {
+        display: none;
+    }
+
+    .top-row.auth[b-u8nqqz512b] {
+        justify-content: space-between;
+    }
+
+    .top-row a[b-u8nqqz512b], .top-row .btn-link[b-u8nqqz512b] {
+        margin-left: 0;
+    }
+}
+
+@media (min-width: 641px) {
+    .page[b-u8nqqz512b] {
+        flex-direction: row;
+    }
+
+    .sidebar[b-u8nqqz512b] {
+        width: 250px;
+        height: 100vh;
+        position: sticky;
+        top: 0;
+    }
+
+    .top-row[b-u8nqqz512b] {
+        position: sticky;
+        top: 0;
+        z-index: 1;
+    }
+
+    .top-row[b-u8nqqz512b], article[b-u8nqqz512b] {
+        padding-left: 2rem !important;
+        padding-right: 1.5rem !important;
+    }
+}

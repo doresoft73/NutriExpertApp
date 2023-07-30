@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+
+<script src="_framework/blazor.webassembly.js"></script>
+<script src="BlazorInputFile.js"></script>
+
+<script>
+    window.BlazorInputFile = {
+        // Define a function to clear the value of the input element
+        clearValue: function (element) {
+            element.value = null;
+        },
+        // Define a function to set the label text of the button
+        setLabelText: function (element, text) {
+            // Find the sibling label element of the input element
+            var label = element.nextElementSibling;
+            // Set the label text to the given text
+            label.innerText = text;
+        }
+    };
+</script>
+
+<div id="app"></div>

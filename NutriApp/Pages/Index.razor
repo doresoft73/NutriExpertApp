@@ -1,0 +1,806 @@
+@page "/"
+@using Microsoft.AspNetCore.Components.Forms
+@using System.IO
+@using System.Threading.Tasks;
+@using Azure.AI.Vision.ImageAnalysis;
+@using NutriApp.Pages
+@using Azure.AI.OpenAI;
+@using Azure;
+@using System.Text;
+@using Microsoft.AspNetCore.Components.Web;
+@using System.Net.Http;
+@using System.Threading.Tasks;
+@using Newtonsoft.Json.Linq;
+@using Newtonsoft.Json;
+@inject ImageOCR cat
+@inject IJSRuntime JSRuntime;
+
+
+
+
+<!-- Chat container -->
+<div class="main-container">
+    <div class="chat-container">
+        <!-- Chat messages container -->
+        <div class="chat-messages-container">
+            <!-- Chat messages -->
+            <ul class="list-group chat-messages">
+                @foreach (var message in ChatMessages)
+                {
+                    <li class="list-group-item chat-message @(message.Role == ChatRole.Assistant ? "bot-message" : "user-message")" @key="@message.Content">
+                        @if (message.Content.StartsWith("Image:"))
+                        {
+                            // Use a different variable name for the image bytes and base64 string
+                            var imgBytes = Convert.FromBase64String(message.Content.Substring(6));
+                            var imgBase64 = $"data:image/jpeg;base64,{Convert.ToBase64String(imgBytes)}";
+                            <img src="@imgBase64" alt="Uploaded Image" style="max-width: 300px; max-height: 300px;" />
+                        }
+                        else if (message.Role == ChatRole.Assistant)
+                        {
+                            <BotMessage Content="@FormatBotResponse(message.Content)" />
+                        }
+                        else
+                        {
+                            <pre>@message.Content</pre>
+                        }
+                        <!-- <span class="message-time (message.Role == ChatRole.Assistant ? "bot-time" : "user-time")"> message.TimeStamp.ToString("hh:mm tt")</span> -->
+                    </li>
+                }
+            </ul>
+            <!-- Loading icon -->
+            @if (IsBotBusy)
+            {
+                <div class="loading-icon">
+                    <i class="fas fa-spinner fa-spin"></i>
+                    <span>NutriExpert is thinking...</span>
+                </div>
+            }
+        </div>
+
+        <!-- Modify the user input section and upload button container -->
+        <div class="user-input-container">
+            <!-- Add a new div for the buttons container -->
+            <div class="buttons-container">
+                <!-- Add a new div for the clear button container -->
+                <div class="clear-button-container">
+                    <button class="btn clear-button" @onclick="ClearMessages">
+                        <i class="fas fa-trash-alt"></i>
+                    </button>
+                </div>
+                <!-- Add a new div for the user input and send button container -->
+                <div class="user-input-and-send-button-container">
+                    <!-- User input section -->
+                    <div class="input-group user-input">
+                        <input type="text" class="form-control" @bind="UserInput" placeholder="Ask me anything..." disabled="@IsBotBusy" @onkeyup="HandleKeyUp" />
+                    </div>
+                    <!-- Send button -->
+                    <button class="btn send-button" @onclick="SendMessage" disabled="@IsBotBusy">
+                        <span class="button-icon">
+                            <i class="fas fa-play"></i>
+                        </span>
+                    </button>
+                    <!-- Upload button -->
+                    <InputFile OnChange="@HandleFileUpload" disabled="@IsBotBusy" @ref="inputFile" class="custom-file-input">
+                        <!-- Add a custom icon button and label -->
+                        <span class="custom-upload-icon">
+                            <i class="fas fa-upload"></i> <!-- use the upload icon -->
+                            <span class="custom-upload-label">Upload Image</span>
+                        </span>
+                    </InputFile>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .custom-file-input {
+        position: relative;
+        overflow: hidden;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        width: 200px; /* reduce the width to match the other buttons */
+        height: 40px;
+        background-color: #689cd2;
+        border-radius: 5px; /* Add border radius */
+        font-size: 12px; /* Adjust the font size */
+        padding: 8px 10px; /* Adjust the padding */
+        text-align: center;
+        cursor: pointer;
+    }
+
+        .custom-file-input input[type=file] {
+            position: absolute;
+            opacity: 0;
+            pointer-events: none;
+        }
+
+    .custom-upload-icon {
+        display: inline-block;
+        margin: 0;
+        vertical-align: middle;
+    }
+
+    .custom-upload-label {
+        display: none; /* hide the label */
+    }
+
+    /* add a hover effect for the button */
+    .custom-file-input:hover {
+        background-color: #436f9c;
+    }
+</style>
+
+
+
+@code {
+    //Variables
+    List<ChatMessage> ChatMessages { get; set; } = new List<ChatMessage>(); // Use a list of ChatMessage objects instead of strings
+    string UserInput = "";// Use a property instead of a field
+    bool IsBotBusy { get; set; } // Use a property to indicate if the bot is busy
+
+    // Add the input file element as a field
+    private InputFile inputFile;
+
+    // Private field to store the client instance
+    private OpenAIClient _client;
+    // Private field to store the chat completions options
+    private ChatCompletionsOptions _chatCompletionsOptions;
+
+    // Private method to initialize and update the client and the options
+    private void InitializeClientAndOptions()
+    {
+        // If the client is null, create a new instance
+        if (_client == null)
+        {
+            _client = new OpenAIClient(
+                new Uri("https://azureopenaiexperimenteastus.openai.azure.com/"),
+                new AzureKeyCredential("6d884d36c5274d0ea3296364f9d5c21e"));
+        }
+
+        // If the options are null, create a new instance with the initial messages
+        if (_chatCompletionsOptions == null)
+        {
+            _chatCompletionsOptions = new ChatCompletionsOptions()
+                {
+                    Messages =
+                {
+                    new ChatMessage(ChatRole.System, "You are an assistant specialized in nutrition"),
+                    new ChatMessage(ChatRole.System, "When the user provides you with diatary restrictions, take those into account"),
+                    new ChatMessage(ChatRole.System, "When provided with information flagged as 'ImageData:,' if the text within the image does not contain 'Nutrition Facts,' the user wants to know the name of the product in this sample format:" + "The name of the product is: Famous Amos Chocolate Chip Bite Size Cookies."),
+                    new ChatMessage(ChatRole.System, "Only when the provided information flagged as 'ImageData:,' contains 'Nutrition Facts,' does the user wants to know the pros and cons of the product" + "Return the pros and cons using this sample format:" +
+                        "This image is a photo of the nutrition label on a jar of nut butter. It shows the serving size, calories, fat, cholesterol, sodium, carbohydrates, fiber, sugars, protein, and ingredients of the product.<br><br>" +
+                        "Pros:<ul><li>It is made with only three natural ingredients, which means it is free of artificial flavors, colors, preservatives, and sweeteners.</li><li>It is non-GMO verified, which means it does not contain genetically modified organisms that may have negative impacts on health or the environment.</li><li>It is vegan, gluten-free, and paleo-friendly, which means it can suit different dietary preferences and needs.</li><li>It has a rich and creamy texture and a sweet and nutty flavor, which makes it delicious and satisfying.</li></ul>" +
+                        "Cons:<ul><li>It is high in calories and fat, which means it can contribute to weight gain if consumed in excess.</li><li>It is low in protein, which means it may not provide enough amino acids for muscle growth and repair.</li><li>It contains dates, which are a source of natural sugars, which means it can raise blood sugar levels if consumed in large amounts.</li><li>It may cause allergic reactions in some.</li></ul>"),
+
+                    new ChatMessage(ChatRole.System, "If the section after 'Nutritional Information:' is blank in the image, that means the image contains no text, so let the user know to send a valid image."),
+                    //Add prompt message signaling the agent to make a recommendation after having the user's personal requirements for the food item.
+                    new ChatMessage(ChatRole.System, "After returning the pros and cons, if you can't identify the specific product in the image, request the user to send another picture of the front label containing the product information if they would like information on shopping for related products."),
+
+                },
+                    MaxTokens = 600
+                };
+        }
+    }
+
+    // Private method to get the response from the client
+    private async Task GetResponse()
+    {
+        // Get the chat completions streaming from the client
+        Response<StreamingChatCompletions> response = await _client.GetChatCompletionsStreamingAsync(
+            deploymentOrModelName: "gpt-4",
+            _chatCompletionsOptions);
+
+        // Get the streaming chat completions instance from the response
+        StreamingChatCompletions streamingChatCompletions = response.Value;
+
+        // Iterate over the streaming choices
+        await foreach (StreamingChatChoice choice in streamingChatCompletions.GetChoicesStreaming())
+        {
+            // Create a StringBuilder to hold the response content
+            StringBuilder responseContent = new();
+
+            // Iterate over the streaming messages
+            await foreach (ChatMessage message in choice.GetMessageStreaming())
+            {
+                // Append the message content to the response content
+                responseContent.Append(message.Content);
+            }
+
+            // Add the response content as an assistant message to the list
+            ChatMessages.Add(new ChatMessage(ChatRole.Assistant, responseContent.ToString()));
+        }
+    }
+
+    // Send message function
+    async Task SendMessage()
+    {
+        if (!string.IsNullOrWhiteSpace(UserInput))
+        {
+            // Add the user input to the options messages
+            if (_chatCompletionsOptions != null)
+            {
+                _chatCompletionsOptions.Messages.Add(new ChatMessage(ChatRole.User, UserInput));
+            }
+
+            ChatMessages.Add(new ChatMessage(ChatRole.User, UserInput)); // Add a user message to the list with the correct role
+            IsBotBusy = true;
+            UserInput = string.Empty;
+            StateHasChanged();
+            await GetResponse();
+            IsBotBusy = false;
+        }
+    }
+
+
+    // Define a new property to hold the image data
+    string ImageData { get; set; }
+
+    // Modify the HandleFileUpload method
+    public async Task HandleFileUpload(InputFileChangeEventArgs e)
+    {
+        string fileName;
+
+        // Get the first file from the event argument
+        var file = e.File;
+
+        // Get the file name and extension
+        fileName = file.Name;
+
+        // Define a path to save the file in the server folder "uploads"
+        var path = Path.Combine(Path.GetTempPath(), "uploads", fileName);
+        // Create the folder if it does not exist
+        Directory.CreateDirectory(Path.GetDirectoryName(path));
+
+        // Create a stream to write the file to the path
+        using (var writeStream = new FileStream(path, FileMode.Create))
+        {
+            // Copy the file content to the stream
+            await file.OpenReadStream().CopyToAsync(writeStream);
+        }
+
+        // Image Analysis + OCR
+        ImageOCR.Authenticate();
+        var results = ImageOCR.AnalyzeImage(path);
+
+        // Display the image by reading the file as bytes and converting to base64 string
+        using (var readStream = new FileStream(path, FileMode.Open))
+        {
+            // Create a byte array to hold the file content
+            var bytes = new byte[readStream.Length];
+            // Read the file content to the byte array
+            await readStream.ReadAsync(bytes, 0, (int)readStream.Length);
+            ChatMessages.Add(new ChatMessage(ChatRole.User, "Image:" + Convert.ToBase64String(bytes))); // Add an image message to the list
+        }
+        IsBotBusy = true; // Set the bot busy flag to true
+        StateHasChanged(); // Invoke Blazor to update the UI
+                           // Set the image data property to the results
+        ImageData = results;
+        UserInput = string.Empty;
+        // Call a new method to send the image data message and get the response
+        await SendImageDataMessage();
+    }
+
+    // Define a new method to send the image data message and get the response
+    private async Task SendImageDataMessage()
+    {
+        // Check if the image data is not null or empty
+        if (!string.IsNullOrWhiteSpace(ImageData))
+        {
+            if (_chatCompletionsOptions != null) // Add this check
+            {
+                _chatCompletionsOptions.Messages.Add(new ChatMessage(ChatRole.User, "ImageData: " + ImageData)); // Add an image data message to the options
+            }
+            await GetResponse(); // Get the response from the client
+            IsBotBusy = false; // Set the bot busy flag to false
+                               // Clear the image data property
+            ImageData = null;
+        }
+    }
+
+    // Clear messages function
+    void ClearMessages()
+    {
+        ChatMessages.Clear();
+        ChatMessages.Add(new ChatMessage(ChatRole.Assistant, "Welcome to NutriExpert! I'm here to provide you with personalized nutrition assistance. How can I help you today? Feel free to share any dietary restrictions you have or upload a photo of a product's nutrition label for analysis"));
+    }
+
+
+    // Add a private method to format the bot response as HTML with bullet points
+    private string FormatBotResponse(string response)
+    {
+        if (response.Contains("The name of the product is:"))
+        {
+            var needtoformatTask = ExtractProductName(response);
+            // print blob here
+            return response;
+        }
+        // Check if the response contains the keywords "Pros:" and "Cons:"
+        if (response.Contains("Pros:") && response.Contains("Cons:"))
+        {
+            int maxNewLines = 2;
+            // Split the response by "<br><br>" to get the segments
+            var segments = response.Split("<br><br>");
+            // Initialize a StringBuilder to hold the formatted response
+            var formattedResponse = new StringBuilder();
+            // Loop through the segments
+            int newLineCount = 0;
+            foreach (var segment in segments)
+            {
+                // If the segment contains "Pros:"
+                if (segment.Contains("Pros:"))
+                {
+                    // Split the segment by "<br>" to get the lines
+                    var lines = segment.Split("<br>");
+                    // Append the first line as is to the formatted response
+                    formattedResponse.Append(lines[0]);
+                    // Append an opening <ul> tag to the formatted response
+                    formattedResponse.Append("<ul>");
+                    // Loop through the remaining lines
+                    for (int i = 1; i < lines.Length; i++)
+                    {
+                        // Remove the leading "- " from the line
+                        var line = lines[i].Replace("- ", "");
+                        // Wrap the line with a <li> tag and append it to the formatted response
+                        formattedResponse.Append($"<li>{line}</li>");
+                    }
+                    // Append a closing </ul> tag to the formatted response
+                    formattedResponse.Append("</ul>");
+                }
+                // If the segment contains "Cons:"
+                else if (segment.Contains("Cons:"))
+                {
+                    // Split the segment by "<br>" to get the lines
+                    var lines = segment.Split("<br>");
+                    // Append the first line as is to the formatted response
+                    formattedResponse.Append(lines[0]);
+                    // Append an opening <ul> tag to the formatted response
+                    formattedResponse.Append("<ul>");
+                    // Loop through the remaining lines
+                    for (int i = 1; i < lines.Length; i++)
+                    {
+                        // Remove the leading "- " from the line
+                        var line = lines[i].Replace("- ", "");
+                        // Wrap the line with a <li> tag and append it to the formatted response
+                        formattedResponse.Append($"<li>{line}</li>");
+                    }
+                    // Append a closing </ul> tag to the formatted response
+                    formattedResponse.Append("</ul>");
+                }
+                // Otherwise, append the segment as is to the formatted response
+                else
+                {
+                    formattedResponse.Append(segment);
+                }
+            }
+            // Return the formatted response as a string
+            return formattedResponse.ToString();
+        }
+        // Otherwise, return the response as is
+        else
+        {
+            return response;
+        }
+
+    }
+    public class Image
+    {
+        public string contentUrl { get; set; }
+    }
+    public class ItemOffered
+    {
+        public string name { get; set; }
+        public string description { get; set; }
+        public Image image { get; set; }
+    }
+
+    public class Seller
+    {
+        public string name { get; set; }
+    }
+
+    public class Offer
+    {
+        public ItemOffered itemOffered { get; set; }
+        public Seller seller { get; set; }
+        public string url { get; set; }
+        public string price { get; set; }
+        public string priceCurrency { get; set; }
+    }
+
+    // this always goes first
+    public class ProductAd
+    {
+        public Offer offer { get; set; }
+    }
+
+    public class AdsResponse
+    {
+        public List<ProductAd> value { get; set; }
+    }
+
+    // all ProductAdData will have these atributes
+    public class ProductAdData
+    {
+        public string ProductName { get; set; }
+        public string Domain { get; set; }
+        public string Price { get; set; }
+        public string Description { get; set; }
+        public string url { get; set; }
+        public string contentUrl { get; set; }
+    }
+
+    public class SearchResult
+    {
+        public List<ProductAdData> AdDataList { get; set; }
+        // public List<OfferData> UPIresult { get; set; }
+    }
+
+    public async Task<SearchResult> EntitySearch(string entityName)
+    {
+        string ApiBaseUrl = "https://www.bingapis.com/api/v7/ads/";
+        HttpClient httpClient = new HttpClient();
+
+        // Set the user agent for the HTTP client
+        httpClient.DefaultRequestHeaders.UserAgent.ParseAdd("Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; WOW64; Trident/5.0; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0; Zune 4.0; InfoPath.3; MS-RTC LM 8; .NET4.0C; .NET4.0E)");
+
+        try
+        {
+            HttpResponseMessage response = await httpClient.GetAsync(ApiBaseUrl + "search?q=" + Uri.EscapeDataString(entityName) + "&appid=8F57215FA513CFCF117BCA94D5E5AD458F470894&traffictype=Internal_monitor&form=monitr&adunitid=169243&propertyid=294294&adtypesfilter=productads&mkt=en-us");
+            response = 
+
+            if (response.IsSuccessStatusCode)
+            {
+                string responseContent = await response.Content.ReadAsStringAsync();
+                Console.WriteLine("API response: " + responseContent);
+
+                // Do something with the API response here
+                AdsResponse adsResponse = JsonConvert.DeserializeObject<AdsResponse>(responseContent);
+                // Now you can access the data using the 'adsResponse' object
+
+                // Assuming that 'value' is a list of product ads
+                if (adsResponse.value != null && adsResponse.value.Count > 0)
+                {
+                    List<ProductAdData> adDataList = new List<ProductAdData>();
+
+                    foreach (var productAd in adsResponse.value)
+                    {
+                        ProductAdData adData = new ProductAdData
+                            {
+                                ProductName = productAd.offer.itemOffered.name,
+                                Domain = productAd.offer.seller.name,
+                                Price = productAd.offer.price + " " + productAd.offer.priceCurrency,
+                                Description = productAd.offer.itemOffered.description,
+                                url = productAd.offer.url,
+                                contentUrl = productAd.offer.itemOffered.image.contentUrl,
+                            };
+
+                        adDataList.Add(adData);
+                    }
+
+                    // Assuming MakeJsonPostRequestAsync returns Task<List<OfferData>>
+                    //Task<List<OfferData>> task = MakeJsonPostRequestAsync(adDataList);
+                    // Await the task to get the result
+                    //List<OfferData> UPIresult = await task;
+
+                    // Create an instance of SearchResult and return it
+                    return new SearchResult
+                        {
+                            AdDataList = adDataList,
+                           // UPIresult = UPIresult
+                        };
+                }
+            }
+            else
+            {
+                Console.WriteLine($"API request failed with status code: {response.StatusCode}");
+            }
+        }
+        catch (HttpRequestException ex)
+        {
+            Console.WriteLine($"Error occurred during the API request: {ex.Message}");
+        }
+
+        // Return null if there was an error or no data found
+        return null;
+    }
+
+    public class ApiResponse
+    {
+        public OfferData deals { get; set; } // Map to OfferData
+
+        // Additional fields in ApiResponse class (if needed)
+        public bool shouldRenderIcon { get; set; }
+        public string friendlyDomainName { get; set; }
+        public int shouldAutoOpenPage { get; set; }
+        public List<Recommendation> recommendations { get; set; } // Map to recommendations
+        public bool shouldRenderSustainability { get; set; }
+        public CashbackData cashback { get; set; } // Map to cashback
+        public string impressionId { get; set; }
+    }
+
+    public class OfferData
+    {
+        public List<Coupon> coupons { get; set; } // Map to coupons
+        public CashbackData Cashback { get; set; }
+        public List<Recommendation> Recommendations { get; set; } // Map to recommendations
+    }
+
+    public class Coupon
+    {
+        public string couponCode { get; set; } // Map to couponCode
+        public string attribution { get; set; }
+        public double? minimumPurchase { get; set; } // Map to minimumPurchase
+        public int? successRate { get; set; } // Map to successRate
+        public int? discountPercent { get; set; } // Map to discountPercent
+        public bool isPrivateCoupon { get; set; } // Map to isPrivateCoupon
+        public bool isLowSuccessRateCoupon { get; set; } // Map to isLowSuccessRateCoupon
+        public bool isStackable { get; set; } // Map to isStackable
+        public DateTime? lastSuccessfulCouponTime { get; set; } // Map to lastSuccessfulCouponTime
+        public string title { get; set; } // Map to title
+        public string offerUrl { get; set; } // Map to offerUrl
+    }
+
+    public class CashbackData
+    {
+        public CashbackCategory HighestCashbackCategory { get; set; } // Map to HighestCashbackCategory
+        public Dictionary<string, object> UserRebateResponse { get; set; }
+        public string MerchantName { get; set; } // Map to MerchantName
+        public string Image { get; set; } // Map to Image
+        public string MerchantId { get; set; } // Map to MerchantId
+        public string MerchantFullName { get; set; } // Map to MerchantFullName
+        public string MerchantUri { get; set; } // Map to MerchantUri
+        public string AffiliateNetwork { get; set; } // Map to AffiliateNetwork
+        public bool IsSignInSupportedDomain { get; set; } // Map to IsSignInSupportedDomain
+        public PersonalizedCashbackData PersonalizedCashback { get; set; } // Map to PersonalizedCashback
+    }
+
+    public class CashbackCategory
+    {
+        public string category { get; set; } // Map to category
+        public string commissionType { get; set; } // Map to commissionType
+        public string commissionValue { get; set; } // Map to commissionValue
+        public int priority { get; set; } // Map to priority
+    }
+
+    public class PersonalizedCashbackData
+    {
+        public bool isAdClick { get; set; } // Map to isAdClick
+    }
+
+    public class Recommendation
+    {
+        public string title { get; set; } // Map to title
+        public string offerUrl { get; set; } // Map to offerUrl
+        public string imageUrl { get; set; } // Map to imageUrl
+        public string originalPrice { get; set; } // Map to originalPrice
+        public string newPrice { get; set; } // Map to newPrice
+        public string discountPercentage { get; set; } // Map to discountPercentage
+        public string id { get; set; } // Map to id
+        public bool isTrendingOffer { get; set; } // Map to isTrendingOffer
+    }
+    public async Task<List<OfferData>> MakeJsonPostRequestAsync(List<ProductAdData> adDataList)
+    {
+        HttpClient httpClient = new HttpClient();
+        httpClient.BaseAddress = new Uri("https://www.bing.com");
+
+        List<OfferData> offerDataList = new List<OfferData>();
+
+        // iterate over adDataList
+        foreach (var adData in adDataList)
+        {
+            try
+            {
+                // The API URL to make the POST request to
+                string apiUrl = "/api/shopping/v1/item/search?appid=5FE1AFEA094F38574F82DDBF956EA6F7482BE76A&mkt=en-us&uapimkt=en-us"; // Replace with your API endpoint URL
+
+                // Create the dynamic JSON payload with the specified variables and hardcoded values
+                string jsonPayload = $@"
+            {{
+                ""AgeGroup"": 0,
+                ""EnabledServiceFeatures"": {{
+                    ""edgeServerUX.shopping.acTrackingToggle"": true,
+                    ""edgeServerUX.shopping.addToCartVariation"": ""variation1"",
+                    ""edgeServerUX.shopping.bestCouponSet"": true,
+                    ""edgeServerUX.shopping.cartChallengerModel"": true,
+                    ""edgeServerUX.shopping.cartExtractionFromBody"": true,
+                    ""edgeServerUX.shopping.ptConciseUi"": true,
+                    ""edgeServerUX.shopping.triviaOnCouponsExperiments"": ""FeatureAvrDailySavings"",
+                    ""edgeServerUX.shopping.wishlistModule"": true
+                }},
+                ""item"": {{
+                    ""attributes"": {{
+                        ""price"": ""$+{adData.Price}"",
+                        ""priceCurrency"": ""$"",
+                        ""priceValue"": ""{adData.Price}""
+                    }},
+                    ""images"": [
+                        {{
+                            ""contenturl"": ""{adData.contentUrl}""
+                        }}
+                    ],
+                    ""page_title"": ""{adData.ProductName}"",
+                    ""seller"": {{
+                        ""domain"": ""{adData.Domain}""
+                    }},
+                    ""title"": ""{adData.ProductName}"",
+                    ""url"": ""{adData.url}""
+                }},
+                ""sourceTypes"": [
+                    ""priceHistory"",""Deals"",""ComparableOffers"",""RatingReview"",""ItemIdentifier"",""PriceSnapshot"",""ItemizedCashBack"",""ShoppableMetadata"",""SmartSuggestions"",""CartProcessing""
+                ]
+            }}";
+                // Prepare the HTTP content with JSON payload
+                var httpContent = new StringContent(jsonPayload, Encoding.UTF8, "application/json");
+
+                // Make the POST request and get the response
+                HttpResponseMessage response = await httpClient.PostAsync(apiUrl, httpContent);
+
+                // Check if the request was successful (200 OK)
+                if (response.IsSuccessStatusCode)
+                {
+                    string responseContent = await response.Content.ReadAsStringAsync();
+
+                    // Deserialize the API response using the ApiResponse class
+                    ApiResponse apiResponse = JsonConvert.DeserializeObject<ApiResponse>(responseContent);
+                    // this is where we want to add all the attributes to the OfferDataList
+                    OfferData offerData = new OfferData();
+
+                    // Extract and set Coupons
+                    if (apiResponse.deals != null)
+                    {
+                        offerData.coupons = apiResponse.deals.coupons?.Select(coupon => new Coupon
+                            {
+                                // Map the properties from the API response to the Coupon class
+                                couponCode = coupon.couponCode,
+                                attribution = coupon.attribution,
+                                minimumPurchase = coupon.minimumPurchase,
+                                successRate = coupon.successRate,
+                                discountPercent = coupon.discountPercent,
+                                isPrivateCoupon = coupon.isPrivateCoupon,
+                                isLowSuccessRateCoupon = coupon.isLowSuccessRateCoupon,
+                                isStackable = coupon.isStackable,
+                                lastSuccessfulCouponTime = coupon.lastSuccessfulCouponTime,
+                                title = coupon.title,
+                                offerUrl = coupon.offerUrl
+                            }).ToList();
+                    }
+                    if (apiResponse.cashback != null)
+                    {
+                        offerData.Cashback = new CashbackData
+                            {
+                                // Map the properties from the API response to the CashbackData class
+                                HighestCashbackCategory = new CashbackCategory
+                                {
+                                    category = apiResponse.cashback.HighestCashbackCategory.category,
+                                    commissionType = apiResponse.cashback.HighestCashbackCategory.commissionType,
+                                    commissionValue = apiResponse.cashback.HighestCashbackCategory.commissionValue,
+                                    priority = apiResponse.cashback.HighestCashbackCategory.priority
+                                },
+                                // Add other properties to CashbackData class if needed
+                                MerchantName = apiResponse.cashback.MerchantName,
+                                Image = apiResponse.cashback.Image,
+                                MerchantId = apiResponse.cashback.MerchantId,
+                                MerchantFullName = apiResponse.cashback.MerchantFullName,
+                                MerchantUri = apiResponse.cashback.MerchantUri,
+                                AffiliateNetwork = apiResponse.cashback.AffiliateNetwork,
+                                IsSignInSupportedDomain = apiResponse.cashback.IsSignInSupportedDomain,
+                                PersonalizedCashback = new PersonalizedCashbackData
+                                {
+                                    isAdClick = apiResponse.cashback.PersonalizedCashback.isAdClick
+                                }
+                            };
+                    }
+                    if (apiResponse.recommendations != null)
+                    {
+                        // Extract and set Recommendations
+                        offerData.Recommendations = apiResponse.recommendations.Select(recommendation => new Recommendation
+                            {
+                                // Map the properties from the API response to the Recommendation class
+                                title = recommendation.title,
+                                offerUrl = recommendation.offerUrl,
+                                imageUrl = recommendation.imageUrl,
+                                originalPrice = recommendation.originalPrice,
+                                newPrice = recommendation.newPrice,
+                                discountPercentage = recommendation.discountPercentage,
+                                id = recommendation.id,
+                                isTrendingOffer = recommendation.isTrendingOffer
+                            }).ToList();
+
+                    }
+                    // Print recommendations
+                    Console.WriteLine("Recommendations:");
+                    foreach (var recommendation in offerData.Recommendations)
+                    {
+                        Console.WriteLine($"- Title: {recommendation.title}");
+                        Console.WriteLine($"  OfferUrl: {recommendation.offerUrl}");
+                        // Add more print statements for other recommendation properties if needed
+                    }
+
+                    // Add the populated OfferData to the OfferDataList
+                    offerDataList.Add(offerData);
+                }
+                else
+                {
+                    // If the request was not successful, handle the error appropriately
+                    return null;
+                }
+            }
+            catch (Exception ex)
+            {
+                // Handle any exceptions that may occur during the request
+                return null;
+            }
+        }
+        return offerDataList;
+    }
+
+
+    private async Task<string> ExtractProductName(string response)
+    {
+        string productName = string.Empty;
+
+        // Split the response into segments
+        var segments = response.Split("<br><br>");
+
+        // Iterate through each segment
+        foreach (var segment in segments)
+        {
+            // Check if the segment contains the product name information
+            if (segment.Contains("The name of the product is:"))
+            {
+                // Split the segment into lines
+                var lines = segment.Split("<br>");
+
+                // Find the line that contains the product name information
+                var productNameLine = lines.FirstOrDefault(line => line.Contains("The name of the product is:"));
+
+                // Extract the product name from the line
+                if (productNameLine != null)
+                {
+                    productName = productNameLine.Replace("The name of the product is: ", "");
+                    int periodIndex = productName.IndexOf('.');
+                    if (periodIndex >= 0)
+                    {
+                        // Trim the product name to end at the first occurrence of a period (.)
+                        productName = productName.Substring(0, periodIndex + 1);
+                    }
+                    break;
+                }
+            }
+        }
+        // need to go through and print the attributes in this object
+        var searchResult = await EntitySearch(productName);
+        StringBuilder resultString = new StringBuilder();
+        foreach (var adData in searchResult.AdDataList)
+        {
+            resultString.AppendLine("Product Name: " + adData.ProductName);
+            resultString.AppendLine("Domain: " + adData.Domain);
+            resultString.AppendLine("Price: " + adData.Price);
+            resultString.AppendLine("Description: " + adData.Description);
+            resultString.AppendLine("URL: " + adData.url);
+            resultString.AppendLine("Content URL: " + adData.contentUrl);
+            resultString.AppendLine("----------------------------------------");
+            return resultString.ToString();
+        }
+        return null;
+
+    }
+    //enter as send
+    // Add a new method to handle the onkeyup event
+    private async Task HandleKeyUp(KeyboardEventArgs e)
+    {
+        if (e.Key == "Enter")
+        {
+            await SendMessage();
+        }
+    }
+
+
+    protected override async Task OnInitializedAsync()
+    {
+        ChatMessages.Add(new ChatMessage(ChatRole.Assistant, "Welcome to NutriExpert! I'm here to provide you with personalized nutrition assistance. How can I help you today? Feel free to share any dietary restrictions you have or upload a photo of a product's nutrition label for analysis"));
+        await Task.CompletedTask;
+        InitializeClientAndOptions();
+    }
+}

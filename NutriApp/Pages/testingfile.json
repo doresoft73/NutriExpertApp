@@ -1,0 +1,1313 @@
+{
+  "_type": "ItemSearchResponse",
+  "deals": {
+    "coupons": [
+      {
+        "couponCode": "70UU2QFX",
+        "attribution": "CNN Coupons",
+        "discountPercent": 70,
+        "isPrivateCoupon": false,
+        "title": "Shop Baby Clothes Up to 70% Off with Amazon Discount Code",
+        "offerUrl": "https://coupons.cnn.com/m/clickout/out/id?id=6813954&clientId=9c766146171622a44dae80b897648eac&clientType=wl&clientCountry=us&vtype=code&page_type=searchengine&rid=1&ds=searchengine_bing&redirect_url=MmVudmpNanZZMFJqOXpra1diTVZ6MWJFZFROdlR3VlFjUVlFdlRNWXptYT1jcFk9T3ZwVTF2SFlXRGx5Wk9IUzBiWmhpTTVCa1FkdE41YmR5dlkwTFlWazF4VXpSMjQzV05VdFJXd2hFMGhR01"
+      },
+      {
+        "couponCode": "402LA5EG",
+        "attribution": "BusinessInsider Coupons",
+        "discountPercent": 40,
+        "isPrivateCoupon": false,
+        "title": "Get Up to 40% Off with This Amazon Coupon Code",
+        "offerUrl": "https://coupons.businessinsider.com/m/clickout/out/id?id=6813949&clientId=53059ce884028590c4fd4a159879a4b4&clientType=wl&clientCountry=us&vtype=code&page_type=searchengine&rid=1&ds=searchengine_bing&redirect_url=TDFZc1ladTFVTW0yUVY5MjBjNUpaVHNRSlJtczM4bmlPNVRET01hak40aHdHUFQzcHpaVkExdmgyUmNkM05aWWJNU2x5TVdUZEVkWFhRR25DRVJSMlFqaVBaeXhKV2tZNHBaRU1PWEVseFVZd250UWozMlh5aG0wTURqd1RWWmx2bEV0MXJjYllOL2pHZDJaWEVMTlJoWlhkZGxtRjlVWGhibndvejJNNWIxemRKZEVNWVFzYU9ZRzhOUGxHeldReFpRbXlZV05NVVlaenVZYlROY2Jkd1RVZGsybGo9ZDFUWlRVY21FUW0xa1cxZ1d5VGpSbVlQVTJ6VHo0TU5WV3prNXd2MT1OVzFra1BXbWw-01"
+      },
+      {
+        "couponCode": "6015ZSSO",
+        "attribution": "CNN Coupons",
+        "discountPercent": 60,
+        "isPrivateCoupon": false,
+        "title": "Use This Amazon Coupon Code for 60% Off Select Items",
+        "offerUrl": "https://coupons.cnn.com/m/clickout/out/id?id=6813937&clientId=9c766146171622a44dae80b897648eac&clientType=wl&clientCountry=us&vtype=code&page_type=searchengine&rid=1&ds=searchengine_bing&redirect_url=VWR3TFRiMTF0aFR5WU1XNGtkY3pLeWxOUXVSVzJPMU1haXZ0Y1lsTDM0ajJXdnhrcFpZUU55VUhHNU9JTjlIVEZ6MFlPM2QwRFY9emR3dlppTE1GTkVqendZRTNSaFJNYjFuOUxwRkU9VFEy01"
+      },
+      {
+        "couponCode": "80OGCE2C",
+        "attribution": "CNN Coupons",
+        "discountPercent": 80,
+        "isPrivateCoupon": false,
+        "title": "Up to 80% Off with This Amazon Coupon Code",
+        "offerUrl": "https://coupons.cnn.com/m/clickout/out/id?id=6809389&clientId=9c766146171622a44dae80b897648eac&clientType=wl&clientCountry=us&vtype=code&page_type=searchengine&rid=1&ds=searchengine_bing&redirect_url=eG9qTVd5Y1VFWVZaa2x6T0NCWXlOamtaM0lOTVlkVVR1OXpXdGV2WXoxRXU0VD1RaU53NWprUnczakpPWDVYUWRjUlcyTHpOM2hiTm1FWk84djBORzA4UVlRRkQ-01"
+      },
+      {
+        "couponCode": "SHANEPD15",
+        "attribution": "amazon.com",
+        "minimumPurchase": 399.0,
+        "isStackable": true,
+        "discountPercent": 15,
+        "isPrivateCoupon": false,
+        "title": "Save 15% Off $399 W/ Code",
+        "offerUrl": "https://www.amazon.com/?auto_show_edge_shopping_flyout=1"
+      }
+    ],
+    "retailerData": {
+      "domainName": "amazon.com",
+      "checkoutPageUrl": "/gp/buy/payselect/handlers/display.html,/gp/buy/addressselect/handlers/display.html,/gp/buy/spc/handlers/display.html,/cart/view.html,/dp,/gp,/s,/,/dp,/gp/product,/music/player/albums,music/player/playlists",
+      "orderConfirmationPageUrl": "/buy/thankyou/handlers/display.html",
+      "exclusiveMarket": "en-us",
+      "allCheckoutPages": [
+        {
+          "inputBoxSelector": "INPUT.pmts-claim-code",
+          "applyButtonSelector": "SPAN.pmts-claim-code-apply-button",
+          "orderTotalDataElementSelector": "#subtotals-transactional-table TD.a-color-price.grand-total-price,.grand-total-price,#subtotals-marketplace-table > table > tbody > tr:first-child > td:nth-child(2)",
+          "waitBeforeReApplyingNextCoupon": 1000,
+          "waitAfterApplyingCurrentCoupon": 2000,
+          "checkoutPageUrl": "/gp/buy/payselect/handlers/display.html",
+          "refreshAfterApplying": true,
+          "errorMessageSelector": "DIV.pmts-error-message-inline DIV.a-box-inner DIV.a-alert-content > P",
+          "manualCouponApplyTrackingEnabled": true,
+          "supportedNoOrderTotal": true,
+          "pageType": "CheckoutPage"
+        },
+        {
+          "inputBoxSelector": "INPUT[name='claimcode' i]",
+          "applyButtonSelector": "span[id$='applybuttonid' i]",
+          "orderTotalDataElementSelector": "#subtotals-marketplace-table .grand-total-price",
+          "waitBeforeReApplyingNextCoupon": 1000,
+          "waitAfterApplyingCurrentCoupon": 2000,
+          "checkoutPageUrl": "/gp/buy/addressselect/handlers/display.html",
+          "errorMessageSelector": "#gc-error",
+          "manualCouponApplyTrackingEnabled": true,
+          "pageType": "CheckoutPage"
+        },
+        {
+          "inputBoxSelector": "#spc-gcpromoinput",
+          "applyButtonSelector": "#gcApplyButtonId",
+          "orderTotalDataElementSelector": "#subtotals-marketplace-table > tbody > tr > td.grand-total-price, #vatRetailSubtotals-marketplace-table > table > tbody > tr > td.grand-total-price",
+          "waitBeforeReApplyingNextCoupon": 1000,
+          "waitAfterApplyingCurrentCoupon": 2000,
+          "checkoutPageUrl": "/gp/buy/spc/handlers/display.html",
+          "cartSelectors": {
+            "cartSelector": "[id='spc-orders']",
+            "productSelector": "[class='a-row shipping-group']",
+            "productTitleSelector": "[class='a-row breakword']",
+            "productPriceSelector": "[class='a-color-price']>[class='a-text-bold']",
+            "productImageSelector": "[class*='product-image'] img",
+            "productUrlSelector": "[class*='product-link']",
+            "productQuantitySelector": "#a-autoid-4-announce > span.a-dropdown-prompt,[data-a-class='quantity'] > [class='a-button-inner'] > span > [class='a-dropdown-prompt'],span > span.a-dropdown-prompt",
+            "productSellerSelector": "[class='a-size-small a-color-secondary']"
+          },
+          "manualCouponApplyTrackingEnabled": true,
+          "pageType": "CheckoutPage",
+          "isAutoShowDisabled": true
+        },
+        {
+          "orderTotalDataElementSelector": "#sc-subtotal-amount-activecart .sc-price",
+          "checkoutPageUrl": "/cart/view.html",
+          "cartSelectors": {
+            "cartSelector": "[data-name='Active Items']",
+            "productSelector": ".sc-list-item-content",
+            "productTitleSelector": "[class*='product-title'] [class*='truncate-full'], .asin-title",
+            "productPriceSelector": "[class*='product-price']",
+            "productImageSelector": "img.sc-product-image",
+            "productUrlSelector": "[class*='product-link']",
+            "productQuantitySelector": "#a-autoid-4-announce > span.a-dropdown-prompt,[data-a-class='quantity'] > [class='a-button-inner'] > span > [class='a-dropdown-prompt']"
+          },
+          "pageType": "CheckoutPage"
+        },
+        {
+          "orderTotalDataElementSelector": "#priceblock_ourprice,#priceblock_saleprice,#priceblock_dealprice,#corePrice_desktop [class*='PriceToPay'] span,.priceToPay > span,#price",
+          "checkoutPageUrl": "/dp,/gp",
+          "clippingSelectors": {
+            "clipCouponSelector": "#promoPriceBlockMessage_feature_div span.promoPriceBlockMessage_Sns div.a-checkbox input;#promoPriceBlockMessage_feature_div div.a-checkbox input;#promoPriceBlockMessage_feature_div input[aria-labelledby*='clipButtonpctch'];#promoPriceBlockMessage_feature_div > span.promoPriceBlockMessage_OneTimePurchase span:not(.aok-hidden) > span > input.a-button-input;SPAN.promoPriceBlockMessage SPAN.a-declarative INPUT[type='submit']",
+            "signedInSelector": "#navbar > div > div.nav-right >div > a.nav-hidden-aria",
+            "discountSelector": "#promoPriceBlockMessage_feature_div span.a-color-success > label;#promoPriceBlockMessage_feature_div label[id*='couponBadgepctch'];#promoPriceBlockMessage_feature_div > span.promoPriceBlockMessage_OneTimePurchase div > div > div > span.a-text-bold;#promoPriceBlockMessage_feature_div > span.promoPriceBlockMessage_OneTimePurchase span:not(.aok-hidden) > span> span.a-button-text span.a-text-bold;#promoPriceBlockMessage_feature_div span.promoPriceBlockMessage_Sns span.a-color-success > label",
+            "orderTotalDataElementSelector": "span.a-price.apexPriceToPay > span.a-offscreen;span.a-price.priceToPay > span.a-offscreen;#priceblock_ourprice,#priceblock_saleprice,#priceblock_dealprice;#sns-base-price",
+            "clippedDiscountSelector": "#promoPriceBlockMessage_feature_div > span.promoPriceBlockMessage_Sns span.a-color-success;#promoPriceBlockMessage_feature_div span.promoPriceBlockMessage span.a-color-success;#promoPriceBlockMessage_feature_div > span.promoPriceBlockMessage_OneTimePurchase div > span:not(.a-declarative) > span.a-button-inner span.a-text-bold;#promoPriceBlockMessage_feature_div label[id*='couponBadgepctch'];#promoPriceBlockMessage_feature_div > span.promoPriceBlockMessage_OneTimePurchase div > div > div > span.a-text-bold",
+            "alreadyClippedSelector": "#promoPriceBlockMessage_feature_div > span.promoPriceBlockMessage_Sns span.a-color-success  > i;#promoPriceBlockMessage_feature_div > span.promoPriceBlockMessage span.a-color-success > i;#promoPriceBlockMessage_feature_div div[id*='checkmarkpctch'];#promoPriceBlockMessage_feature_div > span.promoPriceBlockMessage_OneTimePurchase div > span:not(.a-declarative) > span.a-button-inner input",
+            "promoCodeSelector": "SPAN[id*='promoMessageCXCWpctch']"
+          },
+          "cartSelectors": {
+            "cartSelector": "#dp-container",
+            "productSelector": "#ppd",
+            "productTitleSelector": "#title",
+            "productPriceSelector": "#corePrice_feature_div",
+            "productImageSelector": "#imgTagWrapperId > img",
+            "productQuantitySelector": "#a-autoid-0-announce > .a-dropdown-prompt",
+            "productSellerSelector": "#tabular-buybox > div > .tabular-buybox-text[tabular-attribute-name='Sold by']"
+          },
+          "otherSellerSelectors": {
+            "otherSellersOverlayLinkSelector": "[data-action='show-all-offers-display'] a",
+            "otherSellerOfferElementSelector": "#aod-offer",
+            "otherSellerHeadingSelector": "#aod-offer-heading",
+            "otherSellerPriceSelector": ".a-price .a-offscreen",
+            "otherSellerNameSelector": "#aod-offer-soldBy .a-col-right a",
+            "productImageSelector": "#aod-asin-image-id",
+            "otherSellerRatingSelector": "#aod-offer-seller-rating i",
+            "otherSellerDeliverySelector": ".aod-delivery-promise",
+            "otherSellerAddButtonSelector": "[name='submit.addToCart']",
+            "otherSellerAddedConfirmationSelector": "[id*='aod-offer-atc'],[class*='aod-atc-inline-msg']",
+            "jSVersionThreshold": "1.927",
+            "otherSellerLowestPriceSelector": "[data-action='show-all-offers-display'] .a-size-base,[data-action='show-all-offers-display'] .a-price .a-offscreen"
+          },
+          "pageType": "ProductPage",
+          "catalogSelectors": {
+            "productTitleSelector": "#productTitle",
+            "aggregateRatingSelector": "#reviewsMedley span[data-hook='rating-out-of-text']",
+            "aggregateRatingNumberOfRatingsSelector": "#reviewsMedley div[data-hook='total-review-count'] span",
+            "reviewSelector": "[class = 'a-expander-content reviewText review-text-content a-expander-partial-collapse-content']",
+            "reviewRatingSelector": "i[data-hook*='review-star-rating'] span",
+            "productOutOfStockSelector": "#outOfStock span.a-color-price.a-text-bold,#almOutOfStockBuyBox_feature_div",
+            "productImageSelector": "#imgTagWrapperId img",
+            "productPriceSelector": ".a-price .a-offscreen",
+            "productSellerSelector": "[tabular-attribute-name='Sold by'] [class='a-size-small tabular-buybox-text-message']",
+            "reviewDateSelector": "span[data-hook='review-date']",
+            "reviewerNameSelector": "div[data-hook='genome-widget'] span.a-profile-name",
+            "productBrandSelector": "[id='bylineInfo']",
+            "productASIN": "[id='detailBullets_feature_div'] li:nth-child(6) span:nth-child(2),[id='detailBullets_feature_div'] li:nth-child(3) span:nth-child(2)"
+          },
+          "productAddToCartSelector": "#add-to-cart-button;#freshAddToCartButton",
+          "buyNowSelector": "#buy-now-button"
+        },
+        {
+          "checkoutPageUrl": "/s",
+          "pageType": "SearchPage",
+          "catalogSelectors": {
+            "productTitleSelector": "[class='a-size-base-plus a-color-base a-text-normal']",
+            "productPriceSelector": "[class='a-price'] [class='a-offscreen']"
+          }
+        },
+        {
+          "checkoutPageUrl": "/",
+          "pageType": "HomePage"
+        },
+        {
+          "checkoutPageUrl": "/dp,/gp/product,/music/player/albums,music/player/playlists",
+          "pageType": "ProductPage",
+          "catalogSelectors": {
+            "productTitleSelector": "#productTitle",
+            "aggregateRatingSelector": "#reviewsMedley span[data-hook='rating-out-of-text']",
+            "aggregateRatingNumberOfRatingsSelector": "#reviewsMedley div[data-hook='total-review-count'] span",
+            "reviewSelector": "[class = 'a-expander-content reviewText review-text-content a-expander-partial-collapse-content']",
+            "reviewRatingSelector": "i[data-hook*='review-star-rating'] span",
+            "productOutOfStockSelector": "#availability > span.a-color-state",
+            "productImageSelector": "#imgTagWrapperId > #landingImage",
+            "productSellerSelector": "#tabular-buybox div:nth-child(4) [class='a-size-small tabular-buybox-text-message']"
+          }
+        }
+      ],
+      "orderConfirmationRegex": "T3JkZXIgcGxhY2VkfENvbmZpcm1hdGlvbiB3aWxsIGJlIHNlbnQgdG8geW91ciBlbWFpbA==",
+      "retailerTrivia": { "successRate": 0 },
+      "confirmationPageTelemetry": {
+        "transactionIdSelector": "DummyId",
+        "productDetailsData": [ { "productImageSelector": "[cel_widget_id='typ-shipmentProductImages'] > div > ul > li img" } ],
+        "isHtmlFragmentCollectionEnabled": true,
+        "isCartCachingEnabled": true
+      },
+      "allFinalCheckoutPages": [
+        {
+          "orderTotalDataElementSelector": "#subtotals-marketplace-table > tbody > tr > td.grand-total-price, #vatRetailSubtotals-marketplace-table > table > tbody > tr > td.grand-total-price",
+          "checkoutPageUrl": "/gp/buy/spc/handlers/display.html",
+          "domMutationEnabled": true,
+          "finalCheckoutButtonSelector": "#submitOrderButtonId input,#bottomSubmitOrderButtonId input,#placeYourOrder > span > input,#placeYourOrderSecondary > span > input",
+          "cartSelectors": {
+            "cartSelector": "#spc-orders",
+            "productSelector": "div.shipment > div > div > div:last-child > div:nth-child(1) > div > div",
+            "productTitleSelector": "div.a-fixed-left-grid-col.item-details-right-column.a-col-right > div.a-row.breakword > span,div.a-span9.a-span-last > div:nth-child(1) > strong, .asin-title",
+            "productPriceSelector": "div.a-fixed-left-grid-col.item-details-right-column.a-col-right > div:nth-child(2) > span:nth-child(1) > span > span,div.a-span9.a-span-last > div:nth-child(2) > span.a-color-price.a-text-bold, .a-color-price",
+            "productImageSelector": "div.a-fixed-left-grid-col.a-col-left > img,div.a-column.a-span3 > img",
+            "productQuantitySelector": "span.quantity-dropdown > span.a-button-inner > span.a-button-text > span.a-dropdown-prompt,div.a-span9.a-span-last > div:nth-child(3) > div > span.quantity-display",
+            "productSellerSelector": "div.a-fixed-left-grid-col.item-details-right-column.a-col-right > div:nth-child(4) > span,div.a-span9.a-span-last > div.a-row.a-color-secondary.a-size-small",
+            "productSellerRegex": "Sold by:",
+            "productIdSkuSelector": "input[name=\"dupOrderCheckArgs\"]"
+          },
+          "shipmentSelector": "#spc-orders > div > div > div.shipment > div > div > div:nth-child(1) > div > span:nth-child(2),#spc-orders > div > div > div > div > div > div:nth-child(1) > div > span > span:nth-child(6),#spc-orders > div > div > div > div > div > div:nth-child(1) > div > span > span:nth-child(5),#spc-orders > div > div > div > div > div > div:nth-child(1) > div > span > span:nth-child(7)",
+          "preTaxSelector": "#subtotals #subtotals-marketplace-table > tbody > tr:nth-child(4) > td.a-text-right,#subtotals-marketplace-table > tbody > tr:nth-child(5) > td.a-text-right",
+          "estimatedTaxSelector": "#subtotals #subtotals-marketplace-table > tbody > tr:nth-child(5) > td.a-text-right,#subtotals-marketplace-table > tbody > tr:nth-child(6) > td.a-text-right"
+        }
+      ],
+      "productNameSelector": "span#productTitle,div.av-detail-section >div>h1",
+      "checkoutPageRegex": "/gp/buy/payselect/handlers/display.html|/gp/buy/addressselect/handlers/display.html|/gp/buy/spc/handlers/display.html|/cart/view.html",
+      "exactCheckoutPageUrl": "https://amazon.com/cart/view.html",
+      "isHighTrafficDomain": false,
+      "couponsFilteringEnabled": true,
+      "productPageUrl": "/dp/|/gp/product|music/player/albums|music/player/playlists",
+      "standdownDuration": "0",
+      "productOutOfStockSelector": "#outOfStock span.a-color-price.a-text-bold, #almOutOfStockBuyBox_feature_div",
+      "productImageSelector": "[data-a-image-name='landingImage']",
+      "cancellationPageTelemetry": {
+        "cancellationPageUrlRegex": "/gp/your-account/order-details/ref=_or\\?ie=UTF8&orderID=|/your-account/order-details/ref=_or\\?ie=UTF8&orderID=",
+        "cancellationTextSelector": "#orderDetails > div:nth-child(2) > div > .a-alert-heading"
+      },
+      "addressBarExpansionEnabled": true,
+      "storeCartInEdgeStorage": true,
+      "cartMonitorUrl": "/gp/buy/spc/handlers/display.html",
+      "selectorExtractionEnabled": false,
+      "searchQueryUrlRegex": "/s\\?k=[\\w+]+",
+      "isAOCFragmentCollectionEnabled": true,
+      "aOCFragmentCollectionRate": "0.04",
+      "productPriceSelector": "div[id*='_desktop'] span[data-a-color='price']>span.a-offscreen,div[id*='_desktop'] span[data-a-color='base']>span.a-offscreen,div[id*='_desktop'] div.a-spacing-top-mini span[data-a-color='base']>span.a-offscreen,span#price,p#gc-buy-box-text>span",
+      "productPageUrlRegex": "(?:/gp/product/|/dp/|/asin/)([a-z0-9]+)",
+      "disabledPopupOriginationList": [
+        { "popupOrigination": 81 },
+        {
+          "popupOrigination": 90,
+          "jSVersionThreshold": "1.453"
+        }
+      ],
+      "allAutomatedSelectors": [
+        {
+          "type": "CancellationConfirmed",
+          "urlRegex": "/gp/your-account/order-details/ref=_or\\?ie=utf8&orderid=",
+          "details": {}
+        },
+        {
+          "type": "CancellationConfirmed",
+          "urlRegex": "/your-account/order-details/ref=_or\\?ie=utf8&orderid=",
+          "details": {}
+        },
+        {
+          "type": "Checkout",
+          "urlRegex": "/gp/buy/addressselect/handlers/display.html",
+          "details": { "orderTotalPrice": "#subtotals-marketplace-table .grand-total-price" }
+        },
+        {
+          "type": "Checkout",
+          "urlRegex": "/gp/buy/payselect/handlers/display.html",
+          "details": { "orderTotalPrice": "#subtotals-transactional-table td.a-color-price.grand-total-price,#subtotals-transactional-table TD.a-color-price.grand-total-price,.grand-total-price,#subtotals-marketplace-table > table > tbody > tr:first-child > td:nth-child(2)" }
+        },
+        {
+          "type": "PurchaseConfirmed",
+          "urlRegex": "/buy/thankyou/handlers/display.html",
+          "validationSelector": "#widget-purchaseConfirmationStatus",
+          "details": { "orderId": "DummyId" }
+        },
+        {
+          "type": "Checkout",
+          "urlRegex": "/gp/buy/spc/handlers/display.html",
+          "details": {
+            "orderTotalPrice": "#subtotals-marketplace-table > tbody > tr:nth-child(10) > td.a-color-price.a-size-medium.a-text-right.grand-total-price.aok-nowrap.a-text-bold.a-nowrap,#subtotals-transactional-table td.a-color-price.grand-total-price,td.grand-total-price,#subtotals-marketplace-table > tbody > tr > td.grand-total-price,#vatRetailSubtotals-marketplace-table > table > tbody > tr > td.grand-total-price,.grand-total-price,#subtotals-transactional-table TD.a-color-price.grand-total-price",
+            "productId": "input[name=\"dupOrderCheckArgs\"]",
+            "productName": "[class='a-row breakword'],div.item-details-right-column > div.breakword > span,div.a-fixed-left-grid-col.item-details-right-column.a-col-right > div.a-row.breakword > span,div.a-span9.a-span-last > div:nth-child(1) > strong,.asin-title",
+            "productPrice": "div.a-fixed-left-grid-col.item-details-right-column.a-col-right > div:nth-child(2) > span:nth-child(1) > span > span,div.a-span9.a-span-last > div:nth-child(2) > span.a-color-price.a-text-bold,.a-color-price,[class='a-color-price']>[class='a-text-bold']",
+            "productQuantity": "span > span.a-dropdown-prompt,span.quantity-dropdown > span.a-button-inner > span.a-button-text > span.a-dropdown-prompt,div.a-span9.a-span-last > div:nth-child(3) > div > span.quantity-display,#a-autoid-4-announce > span.a-dropdown-prompt,[data-a-class='quantity'] > [class='a-button-inner'] > span > [class='a-dropdown-prompt']"
+          }
+        },
+        {
+          "type": "Checkout",
+          "urlRegex": "/buy/spc/handlers",
+          "details": {
+            "orderTotalPrice": "td.grand-total-price",
+            "productName": "div.item-details-right-column > div.breakword > span"
+          }
+        },
+        {
+          "type": "Checkout",
+          "urlRegex": "/cart/view.html",
+          "details": {
+            "orderTotalPrice": "#sc-subtotal-amount-activecart .sc-price",
+            "productName": "[class*='product-title'] [class*='truncate-full'],.asin-title",
+            "productPrice": "[class*='product-price']",
+            "productQuantity": "#a-autoid-4-announce > span.a-dropdown-prompt,[data-a-class='quantity'] > [class='a-button-inner'] > span > [class='a-dropdown-prompt']"
+          }
+        }
+      ]
+    },
+    "errorCode": "OK",
+    "impressionId": "4A53B4AB3BDC451CBC08DCAC511F1324",
+    "cashback": {
+      "userRebateResponse": {},
+      "isSignInSupportedDomain": true,
+      "personalizedCashback": {}
+    },
+    "shouldRenderIcon": true,
+    "friendlyDomainName": "Amazon.com",
+    "shouldAutoOpenPage": 0,
+    "recommendations": [
+      {
+        "title": "EVGA 10G-P5-3881-KR GeForce RTX 3080 XC3 BLACK GAMING, 10GB GDDR6X, iCX3 Cooling, ARGB LED",
+        "offerUrl": "https://www.amazon.com/EVGA-10G-P5-3881-KR-GeForce-GAMING-Cooling-dp-B08HR6FMF3/dp/B08HR6FMF3/ref=dp_ob_title_ce",
+        "imageUrl": "/th?id=OP.LwgNMbOFfG3L%2bQ474C474&o=5&pid=21.1",
+        "originalPrice": "$1499",
+        "newPrice": "$599.99",
+        "discountPercentage": "59",
+        "id": "119957662234",
+        "isTrendingOffer": false
+      },
+      {
+        "title": "Canon PowerShot SX530 Digital Camera w/ 50X Optical Zoom - Wi-Fi & NFC Enabled (Black)",
+        "offerUrl": "https://www.amazon.com/dp/B00RKNND2W?tag=namespacebran394-20",
+        "imageUrl": "/th?id=OP.F7ch%2bICvopESLQ474C474&o=5&pid=21.1",
+        "originalPrice": "$549",
+        "newPrice": "$219.9",
+        "discountPercentage": "59",
+        "id": "149796586833",
+        "isTrendingOffer": false
+      },
+      {
+        "title": "Taylormade 2023 FlexTech Stand Bag (Royal)",
+        "offerUrl": "https://www.amazon.com/Taylormade-FlexTech-Stand-Gunmetal-White/dp/B0C3HD5DRZ/ref=sr_1_53?crid=3EWQMMU44S8SD&keywords=golf+bag+taylormade+men&qid=1690554879&sprefix=golf+bag+taylor,aps,111&sr=8-53&th=1",
+        "imageUrl": "/th?id=OP.qPEU7PpwkyoT6Q474C474&o=5&pid=21.1",
+        "originalPrice": "$359.46",
+        "newPrice": "$144.67",
+        "discountPercentage": "59",
+        "id": "153347369619",
+        "isTrendingOffer": false
+      },
+      {
+        "title": "12000 Btu Portable Air Conditioner,120V",
+        "offerUrl": "https://www.amazon.com/12000-Btu-Portable-Conditioner-120V/dp/B00HWYONOG/ref=sr_1_29?keywords=tripp+lite+air+conditioner&qid=1690511381&sprefix=tripp+lite+air,aps,107&sr=8-29",
+        "imageUrl": "/th?id=OP.cVrWiLmEDk4f5Q474C474&o=5&pid=21.1",
+        "originalPrice": "$1125.66",
+        "newPrice": "$471.06",
+        "discountPercentage": "58",
+        "id": "153619209482",
+        "isTrendingOffer": false
+      },
+      {
+        "title": "Audio-Technica AT-LP120XUSB-BZ Direct-Drive Turntable (Analog & USB), Fully Manual, Hi-Fi, 3 Speed, Convert Vinyl to Digital, Anti-Skate and Variable",
+        "offerUrl": "https://www.amazon.com/gp/product/B0BN27CNXD/ref=ox_sc_act_image_1?smid=A9VBWN1Q1U6E6&th=1",
+        "imageUrl": "/th?id=OP.vHi2UjuyCG%2f3vQ474C474&o=5&pid=21.1",
+        "originalPrice": "$849.99",
+        "newPrice": "$349",
+        "discountPercentage": "58",
+        "id": "149791196324",
+        "isTrendingOffer": false
+      },
+      {
+        "title": "Yost Vises 880-D2 Reversible Combination Vise System | 8 Inch Jaw Width Heavy-Duty Utility Pipe and Bench Vise |Jaw Opens 12.5 Inches when Reversed",
+        "offerUrl": "https://www.amazon.com/dp/B0792QB7TX",
+        "imageUrl": "/th?id=OP.rGFmiuWfOREjSQ474C474&o=5&pid=21.1",
+        "originalPrice": "$389.99",
+        "newPrice": "$159.99",
+        "discountPercentage": "58",
+        "id": "86557417022",
+        "isTrendingOffer": false
+      },
+      {
+        "title": "ExpressVPN Aircove | Ultra-Fast Wi-Fi 6 Dual-Band VPN Router | VPN Protection for All Devices | Includes 30-Day ExpressVPN Free Trial (Non-U.S. Inter",
+        "offerUrl": "https://www.amazon.com/dp/B0BV39GR2S?maas=maas_adg_276ED0DC200A6EA8039C7201F962D103_afap_abs&ref_=aa_maas&tag=maas",
+        "imageUrl": "/th?id=OP.e4DQVvuoVIN4CQ474C474&o=5&pid=21.1",
+        "originalPrice": "$189.9",
+        "newPrice": "$79.89",
+        "discountPercentage": "57",
+        "id": "152494071878",
+        "isTrendingOffer": false
+      },
+      {
+        "title": "ARRIS SURFboard SB8200 DOCSIS 3.1 Cable Modem | Approved for Comcast Xfinity, Cox, Charter Spectrum, & more | Two 1 Gbps Ports | 1 Gbps Max Internet",
+        "offerUrl": "https://www.amazon.com/ARRIS-SURFboard-Approved-SB8200-Frustration/dp/B07DY16W2Z/ref=sr_1_20?keywords=modem&qid=1690554686&sr=8-20&ufe=app_do%3Aamzn1.fos.*GUID_REMOVED*&th=1",
+        "imageUrl": "/th?id=OP.cxJuKxAPcixa0g474C474&o=5&pid=21.1",
+        "originalPrice": "$122.99",
+        "newPrice": "$56.15",
+        "discountPercentage": "54",
+        "id": "17969569906",
+        "isTrendingOffer": false
+      },
+      {
+        "title": "Microsoft Surface Book 2 15\" (Intel Core i7, 16GB RAM, 512 GB), Silver",
+        "offerUrl": "https://www.amazon.com/Microsoft-Surface-FUX-00001-Windows-Storage/dp/B076J15LKM/ref=sr_1_8?crid=A3QTUG7NFQU5&keywords=android+notebook+tablet&qid=1690552449&sprefix=android+note,aps,333&sr=8-8&th=1",
+        "imageUrl": "/th?id=OP.EJs2k76CfgPUcA474C474&o=5&pid=21.1",
+        "originalPrice": "$1597.03",
+        "newPrice": "$720",
+        "discountPercentage": "54",
+        "id": "119533465806",
+        "isTrendingOffer": false
+      },
+      {
+        "title": "Nikon D500 DX-Format Digital SLR (Body Only), Base",
+        "offerUrl": "https://www.amazon.com/Nikon-D500-DX-Format-Digital-Body/dp/B01A7Q0J3Y/ref=sr_1_3?crid=11U4GP9DUHY7T&keywords=nikon+d500&qid=1690554385&sprefix=nikon+d500,aps,212&sr=8-3",
+        "imageUrl": "/th?id=OP.MrCbcsyW7JMjSQ474C474&o=5&pid=21.1",
+        "originalPrice": "$2069.95",
+        "newPrice": "$945",
+        "discountPercentage": "54",
+        "id": "119540350855",
+        "isTrendingOffer": false
+      },
+      {
+        "title": "Echo Dot (3rd Gen, 2018 release) - Smart speaker with Alexa - Charcoal",
+        "offerUrl": "https://www.amazon.com/dp/B07FZ8S74R/ref=s9_acsd_al_bw_c2_x_6_i?pf_rd_m=ATVPDKIKX0DER&pf_rd_s=merchandised-search-4&pf_rd_r=Z25A4VMS7E2P1EKNMX46&pf_rd_t=101&pf_rd_p=*GUID_REMOVED*&pf_rd_i=9818047011",
+        "imageUrl": "/th?id=OP.Jm3y%2fr7gjn%2fp4A474C474&o=5&pid=21.1",
+        "originalPrice": "$39.99",
+        "newPrice": "$19.36",
+        "discountPercentage": "51",
+        "id": "119516301207",
+        "isTrendingOffer": false
+      },
+      {
+        "title": "Canon EOS 5D Mark IV Full Frame Digital SLR Camera Body",
+        "offerUrl": "https://www.amazon.com/Canon-Mark-Frame-Digital-Camera/dp/B01KURGS9E",
+        "imageUrl": "/th?id=OP.M4WOctKXgerDug474C474&o=5&pid=21.1",
+        "originalPrice": "$2699",
+        "newPrice": "$1295.99",
+        "discountPercentage": "51",
+        "id": "17965999602",
+        "isTrendingOffer": false
+      },
+      {
+        "title": "Ruckus Brocade ICX 7150 Compact Switch (ICX7150-C12P-2X1G)",
+        "offerUrl": "https://www.amazon.com/Ruckus-Brocade-Compact-Switch-ICX7150-C12P-2X1G/dp/B078TZLJ4G",
+        "imageUrl": "/th?id=OP.LuAEDnKLcQ%2faYA474C474&o=5&pid=21.1",
+        "originalPrice": "$999.99",
+        "newPrice": "$498",
+        "discountPercentage": "50",
+        "id": "136517010565",
+        "isTrendingOffer": false
+      },
+      {
+        "title": "Microsoft Surface Pro 7 - 12.3\" Touch-Screen - 10th Gen Intel Core i5 - 8GB Memory - 256GB SSD - Matte Black",
+        "offerUrl": "https://www.amazon.com/New-Microsoft-Surface-Pro-Touch-Screen/dp/B07YNJ6BQL",
+        "imageUrl": "/th?id=OP.mybejn4NvWYYAQ474C474&o=5&pid=21.1",
+        "originalPrice": "$799.18",
+        "newPrice": "$399",
+        "discountPercentage": "50",
+        "id": "37343980439",
+        "isTrendingOffer": false
+      },
+      {
+        "title": "MSI Creator Z16P 16\" Professional Creator Laptop: Intel Core i9-12900H RTX 3080 Ti 64GB DDR5 2TB NVMe SSD, QHD+ 165hz 100% DCI-P3, Thunderbolt 4 w/ P",
+        "offerUrl": "https://www.amazon.com/dp/B09SVYQJ8M/?coliid=IY0A48FBX9730&colid=19PXE8FAH4ZES&psc=0&ref_=list_c_wl_lv_ov_lig_dp_it",
+        "imageUrl": "/th?id=OP.zWTT0HrEtwMiew474C474&o=5&pid=21.1",
+        "originalPrice": "$4835.97",
+        "newPrice": "$2499",
+        "discountPercentage": "48",
+        "id": "149793471841",
+        "isTrendingOffer": false
+      },
+      {
+        "title": "Hisense 50-inch ULED U6HF Series Quantum Dot QLED 4K UHD Smart Fire TV (50U6HF), Black",
+        "offerUrl": "https://www.amazon.com/dp/B09WNJT9X3/ref=ods_gw_tpr_july_d_h1_smp_ha_071323/?_encoding=UTF8&pd_rd_w=YckEk&content-id=amzn1.sym.*GUID_REMOVED*&pf_rd_p=2ea25a0a-580d-4d3f-8793-d4848780fa87&pf_rd_r=CY9PF3FVXH4PK9ZVR1EN&pd_rd_wg=VhAgZ&pd_rd_r=83c42f31-fb9f-41a2-b292-23aec8849faa",
+        "imageUrl": "/th?id=OP.%2b6AxbsSS04AWVw474C474&o=5&pid=21.1",
+        "originalPrice": "$478.32",
+        "newPrice": "$249.99",
+        "discountPercentage": "47",
+        "id": "119518974703",
+        "isTrendingOffer": false
+      },
+      {
+        "title": "Ring Floodlight Cam Wired Plus with motion-activated 1080p HD video, White (2021 release)",
+        "offerUrl": "https://www.amazon.com/Ring-Floodlight-Cam-Wired-Plus/dp/B08F6GPQQ7",
+        "imageUrl": "/th?id=OP.0MUHGimv7a1jZg474C474&o=5&pid=21.1",
+        "originalPrice": "$199.99",
+        "newPrice": "$110.79",
+        "discountPercentage": "44",
+        "id": "60260659750",
+        "isTrendingOffer": false
+      },
+      {
+        "title": "Rowenta Steam Force Stainless Steel Soleplate Steam Iron for Clothes 400 Microsteam Holes, Cotton, Wool, Poly, Silk, Linen, Nylon 1800 Watts Ironing,",
+        "offerUrl": "https://www.amazon.com/Rowenta-DW9280-Stainless-Soleplate-1800-Watt/dp/B00CLD39C0/ref=sr_1_5?crid=2EMSFPVGE9Z4O&keywords=rowenta+iron+with+steam+clean&qid=1690555724&s=home-garden&sprefix=rowenta+iron+with+steam+clean,garden,153&sr=1-5&th=1",
+        "imageUrl": "/th?id=OP.IMj7LDowDnzEHA474C474&o=5&pid=21.1",
+        "originalPrice": "$149.99",
+        "newPrice": "$84.92",
+        "discountPercentage": "43",
+        "id": "119512357861",
+        "isTrendingOffer": false
+      },
+      {
+        "title": "HP Color LaserJet Enterprise Flow MFP M681z | Streamline complicated workflows | Fast scan speeds | Built-in OCR software (J8A13A)",
+        "offerUrl": "https://www.amazon.com/HP-Color-Laserjet-Enterprise-M681z/dp/B072LZGK72",
+        "imageUrl": "/th?id=OP.%2ffjsVjdjDVuvyQ474C474&o=5&pid=21.1",
+        "originalPrice": "$8494.95",
+        "newPrice": "$4869",
+        "discountPercentage": "42",
+        "id": "119965282902",
+        "isTrendingOffer": false
+      },
+      {
+        "title": "LandAirSea 54 GPS Tracker, - Waterproof Magnet Mount. Full Global Coverage. 4G LTE Real-Time Tracking for Vehicle, Asset, Fleet, Elderly and more.",
+        "offerUrl": "https://www.amazon.com/LandAirSea-Waterproof-Magnetic-Personal-Location/dp/B06XVZ6Y4T/ref=sr_1_4?crid=2RTV5QDCXFT8G&keywords=vehicle+tracker&qid=1690555419&sprefix=vehicle,aps,108&sr=8-4&qty=9",
+        "imageUrl": "/th?id=OP.%2bRcOZIT6%2bPlMiA474C474&o=5&pid=21.1",
+        "originalPrice": "$25.93",
+        "newPrice": "$15.95",
+        "discountPercentage": "38",
+        "id": "17967069230",
+        "isTrendingOffer": false
+      }
+    ],
+    "shouldRenderSustainability": false,
+    "itemLevelCashBack": {
+      "itemizedCashback": [
+        {
+          "source": "q",
+          "imageUrl": "https://cdn.cpnscdn.com/static.coupons.com/ext/bussys/cpa/pod/60/841/3660841_cd1863f4-632c-4512-a85b-6c6ac843d5e6_high.jpg",
+          "value": "1",
+          "id": "e387e3e3-6048-46c8-8d43-29a9326dd9f0",
+          "description": "off any ONE (1) package of Brawny® Paper Towels, 4 roll or larger",
+          "brand": "Brawny®",
+          "expiryDate": "8/28/2023 6:59:59 AM",
+          "retailer": "amazon",
+          "offerSummary": "Save $1.00",
+          "minQty": 1,
+          "cashbackProducts": [
+            {
+              "upc": "042000442138",
+              "url": "https://www.amazon.com/Brawny-Square-Regualr-Options-Quarter/dp/B0854W9DCT",
+              "price": "$32.75",
+              "title": "Brawny Tear-A-Square Paper Towels, 8 Double Rolls = 16 Regular Rolls, 3 Sheet Size Options, Quarter Size Sheets",
+              "image": "https://m.media-amazon.com/images/I/91pClMCWFZL._AC_UL400_.jpg",
+              "productId": "B0854W9DCT",
+              "productReviewsCount": "73,030",
+              "productRatings": "4.8",
+              "displayCategory": "Household"
+            },
+            {
+              "upc": "042000441353",
+              "url": "https://www.amazon.com/Brawny-Paper-Towels-Rolls-Regular/dp/B06VW5Y4ZG",
+              "price": "$34.50",
+              "title": "Brawny Paper Towels, 6 XL Rolls, Pick-A-Size, White, 6 = 12 Regular Rolls",
+              "image": "https://m.media-amazon.com/images/I/71AFdKCorYL._AC_SX116_.jpg",
+              "productId": "B06VW5Y4ZG",
+              "productReviewsCount": "14,359",
+              "productRatings": "4.7",
+              "displayCategory": "Household"
+            },
+            {
+              "upc": "042000443586",
+              "url": "https://www.amazon.com/Brawny%C2%AE-Square%C2%AE-Towels-Double-Regular/dp/B09NW7WVFR",
+              "price": "$11.24",
+              "title": "Brawny® Tear-A-Square® Paper Towels, 6 Double Rolls = 12 Regular Rolls",
+              "image": "https://m.media-amazon.com/images/I/91z-rcm0OnL._AC_UL400_.jpg",
+              "productId": "B09NW7WVFR",
+              "productReviewsCount": "4,000",
+              "productRatings": "4.8",
+              "displayCategory": "Household"
+            },
+            {
+              "upc": "042000441339",
+              "url": "https://www.amazon.com/Brawny-Paper-Towels-Pick-Regular/dp/B07BMNNR83",
+              "price": "$44.99",
+              "title": "Brawny Paper Towels, 6 Large Rolls, Pick-A-Size, 80 Sheets Per Roll",
+              "image": "https://m.media-amazon.com/images/I/71jJsxsXpnL._AC_SX116_.jpg",
+              "productId": "B07BMNNR83",
+              "productReviewsCount": "488",
+              "productRatings": "4.6",
+              "displayCategory": "Household"
+            },
+            {
+              "upc": "042000440783",
+              "url": "https://www.amazon.com/Brawny-Paper-Towels-Large-Regular/dp/B06XBB41NH",
+              "price": "$22.00",
+              "title": "Brawny Paper Towels, 6 Large Rolls, Full Sheet, 6 = 8 Regular Rolls",
+              "image": "https://m.media-amazon.com/images/I/71mr1NvgCNL._AC_UL320_.jpg",
+              "productId": "B06XBB41NH",
+              "productReviewsCount": "151",
+              "productRatings": "4.4",
+              "displayCategory": "Household"
+            }
+          ]
+        },
+        {
+          "source": "q",
+          "imageUrl": "https://cdn.cpnscdn.com/static.coupons.com/ext/bussys/cpa/pod/33/931/3733931_e506b42a-a775-4723-a4d2-8bcb05fe8b06_high.jpg",
+          "value": "2",
+          "id": "357bc1e5-eac2-4095-8430-212a63467a4e",
+          "description": "ONE (1) COVERGIRL® Face Product (excludes Cheekers, accessories and travel/trial size)",
+          "brand": "COVERGIRL®",
+          "expiryDate": "8/6/2023 6:59:59 AM",
+          "retailer": "amazon",
+          "offerSummary": "$2.00 OFF",
+          "minQty": 1,
+          "cashbackProducts": [
+            {
+              "upc": "008100100460",
+              "url": "https://www.amazon.com/COVERGIRL-Simply-Ageless-Foundation-packaging/dp/B019NLUPEW",
+              "price": "$11.70",
+              "title": "COVERGIRL & Olay Simply Ageless 3-in-1 Liquid Foundation, Classic Tan, 1 Fl Oz (Pack of 1)",
+              "image": "https://m.media-amazon.com/images/I/51PtsUR76EL._AC_UL400_.jpg",
+              "productId": "B019NLUPEW",
+              "productReviewsCount": "34,930",
+              "productRatings": "4.5",
+              "displayCategory": "Personal Care, Health & Beauty"
+            },
+            {
+              "upc": "614225303296",
+              "url": "https://www.amazon.com/Covergirl-Trublend-Matte-Liquid-Foundation/dp/B07CJ6MRKQ",
+              "price": "$9.12",
+              "title": "COVERGIRL TruBlend Matte Made Liquid Foundation, Fair Beige",
+              "image": "https://m.media-amazon.com/images/I/61ZxRRM4HCL._AC_UL400_.jpg",
+              "productId": "B07CJ6MRKQ",
+              "productReviewsCount": "7,321",
+              "productRatings": "4.5",
+              "displayCategory": "Personal Care, Health & Beauty"
+            },
+            {
+              "upc": "008100004058",
+              "url": "https://www.amazon.com/COVERGIRL-Clean-Liquid-Foundation-packaging/dp/B0C1FXSB87",
+              "price": "$19.14",
+              "title": "COVERGIRL Clean Matte Liquid Foundation Warm Beige 545, 1 oz (packaging may vary) (Pack of 3)",
+              "image": "https://m.media-amazon.com/images/I/41nIb7EQZUL._AC_UL400_.jpg",
+              "productId": "B0C1FXSB87",
+              "productReviewsCount": "3,368",
+              "productRatings": "4.6",
+              "displayCategory": "Personal Care, Health & Beauty"
+            },
+            {
+              "upc": "008100004096",
+              "url": "https://www.amazon.com/COVERGIRL-Clean-Liquid-Foundation-packaging/dp/B003FBTY4O",
+              "price": "$4.49",
+              "title": "COVERGIRL Clean Matte Liquid Foundation Tawny, 1 oz (packaging may vary)",
+              "image": "https://m.media-amazon.com/images/I/71PtkeDDxHL._AC_UL400_.jpg",
+              "productId": "B003FBTY4O",
+              "productReviewsCount": "3,368",
+              "productRatings": "4.6",
+              "displayCategory": "Personal Care, Health & Beauty"
+            },
+            {
+              "upc": "008100004065",
+              "url": "https://www.amazon.com/CoverGirl-Control-Liquid-1-0-Ounce-Bottles/dp/B002VECK5G",
+              "price": "$12.32",
+              "title": "CoverGirl Clean Oil Control Liquid Makeup, Creamy Beige 550, 1.0-Ounce Bottles (Pack of 2)",
+              "image": "https://m.media-amazon.com/images/I/713XAnWMnpL._AC_UL400_.jpg",
+              "productId": "B002VECK5G",
+              "productReviewsCount": "60",
+              "productRatings": "4.8",
+              "displayCategory": "Personal Care, Health & Beauty"
+            },
+            {
+              "upc": "008100004010",
+              "url": "https://www.amazon.com/CoverGirl-Clean-Control-Liquid-Makeup/dp/B00I5R3KI4",
+              "price": "$11.95",
+              "title": "CoverGirl Clean Oil Control Liquid Makeup, Buff Beige [525], 1 oz (Pack of 2)",
+              "image": "https://m.media-amazon.com/images/I/51wr88xtwPL._AC_UL320_.jpg",
+              "productId": "B00I5R3KI4",
+              "productReviewsCount": "22",
+              "productRatings": "4.8",
+              "displayCategory": "Personal Care, Health & Beauty"
+            }
+          ]
+        },
+        {
+          "source": "q",
+          "imageUrl": "https://cdn.cpnscdn.com/static.coupons.com/ext/bussys/cpa/pod/61/651/3661651_f1038353-2bff-44c9-8165-86a4f5d30721_high.jpg",
+          "value": "5",
+          "id": "790d1d4e-e069-4925-a59a-7f8fbe4b9d22",
+          "description": "on Any ONE (1) Air Wick® Essential Mist® Starter Kit",
+          "brand": "Air Wick®",
+          "expiryDate": "8/20/2023 6:59:59 AM",
+          "retailer": "amazon",
+          "offerSummary": "Save $5.00",
+          "minQty": 1,
+          "cashbackProducts": [
+            {
+              "upc": "062338985503",
+              "url": "https://www.amazon.com/Air-Wick-Essential-Diffuser-Freshener/dp/B075HP5G2D",
+              "price": "$11.98",
+              "title": "Air Wick Essential Mist Starter Kit, Diffuser + 1 Refill, Lavender and Almond Blossom, Air Freshener, Essential Oils",
+              "image": "https://m.media-amazon.com/images/I/81zQRwNMxuL._AC_UL320_.jpg",
+              "productId": "B075HP5G2D",
+              "productReviewsCount": "34,014",
+              "productRatings": "4.4",
+              "displayCategory": "Household"
+            },
+            {
+              "upc": "062338023182",
+              "url": "https://www.amazon.com/Air-Wick-Essential-Diffuser-Freshener/dp/B08TSBLYFT",
+              "price": "$9.98",
+              "title": "Air Wick Essential Mist Diffuser, 1ct, Essential Oils Diffuser, Air Freshener",
+              "image": "https://m.media-amazon.com/images/I/71WMbZCpzzL._AC_UL400_.jpg",
+              "productId": "B08TSBLYFT",
+              "productReviewsCount": "3,239",
+              "productRatings": "4.4",
+              "displayCategory": "Household"
+            },
+            {
+              "upc": "062338816814",
+              "url": "https://www.amazon.com/Air-Wick-Essential-Diffuser-Freshener/dp/B07R8JPPWM",
+              "price": "$11.25",
+              "title": "Air Wick Essential Mist, Essential Oils Diffuser, (Diffuser + 1 Refill), Apple Cinnamon Medley, Fall scent, Fall spray, Air Freshener, Packaging May Vary",
+              "image": "https://m.media-amazon.com/images/I/716xgGgcR9L._AC_UL320_.jpg",
+              "productId": "B07R8JPPWM",
+              "productReviewsCount": "1,731",
+              "productRatings": "4.3",
+              "displayCategory": "Household"
+            },
+            {
+              "upc": "062338000268",
+              "url": "https://www.amazon.com/Air-Wick-Essential-Diffuser-Cinnamon/dp/B08HPV46CP",
+              "price": "$24.99",
+              "title": "Air Wick Air Wick Essential Mist Fall Starter Kit (1 Diffuser + 2 Refills), Apple Cinnamon & Woodland Pine, 3 Count",
+              "image": "https://m.media-amazon.com/images/I/9179HeNtU1L._AC_UL400_.jpg",
+              "productId": "B08HPV46CP",
+              "productReviewsCount": "1,542",
+              "productRatings": "4.4",
+              "displayCategory": "Household"
+            },
+            {
+              "upc": "062338086828",
+              "url": "https://www.amazon.com/Air-Wick-Essential-Diffuser-Freshener/dp/B089F7GQ5J",
+              "price": "$14.99",
+              "title": "Air Wick Essential Mist, Essential Oils Diffuser, (Diffuser + 1 Refill), Pumpkin Spice, Fall Scent, Fall Spray, Air Freshener",
+              "image": "https://m.media-amazon.com/images/I/91x3dQW7l7L._AC_UL320_.jpg",
+              "productId": "B089F7GQ5J",
+              "productReviewsCount": "3",
+              "productRatings": "3.7",
+              "displayCategory": "Household"
+            }
+          ]
+        },
+        {
+          "source": "q",
+          "imageUrl": "https://cdn.cpnscdn.com/static.coupons.com/ext/bussys/cpa/pod/12/311/3712311_cd82aec1-3244-4cb7-b3df-b2d13612924d_high.jpg",
+          "value": "4",
+          "id": "9ca63315-8f92-45b4-8c84-542c3e8b0409",
+          "description": "on any ONE (1) BIC® Soleil®, BIC® Flex™, BIC® Easyrinse™ or BIC® Comfort 3® Hybrid/Refillable Disposable Razor Pack (Excludes Soleil® Simply Smooth™ 3 pack & Trial/Travel Size)",
+          "brand": "BIC® Razors",
+          "expiryDate": "7/30/2023 6:59:59 AM",
+          "retailer": "amazon",
+          "offerSummary": "Save $4.00",
+          "minQty": 1,
+          "cashbackProducts": [
+            {
+              "upc": "070330723399",
+              "url": "https://www.amazon.com/Proposed-Vaule-Disposable-Sensitive-Lubricating/dp/B003YUYVMQ",
+              "price": "$9.90",
+              "title": "BIC Soleil SMOOTH COLORS Disposable Razors for Women Sensitive Skin Razor With Aloe Vera and Vitamin E Lubricating Strip and 3 Blades, 8 Piece Razor Set",
+              "image": "https://m.media-amazon.com/images/I/71ynmHwxRsL._AC_UL400_.jpg",
+              "productId": "B003YUYVMQ",
+              "productReviewsCount": "33,165",
+              "productRatings": "4.7",
+              "displayCategory": "Personal Care, Health & Beauty"
+            },
+            {
+              "upc": "070330714175",
+              "url": "https://www.amazon.com/BIC-Soleil-Twilight-Disposable-4-Count/dp/B002L5WFT6",
+              "price": "$5.47",
+              "title": "BIC Soleil Smooth Scented Women’s Disposable Razor, 3 Blades with a Moisture Strip For a Silky Shave, Assorted, 4 Piece Razor Set",
+              "image": "https://m.media-amazon.com/images/I/71-gW+T7rTL._AC_UL400_.jpg",
+              "productId": "B002L5WFT6",
+              "productReviewsCount": "10,156",
+              "productRatings": "4.6",
+              "displayCategory": "Personal Care, Health & Beauty"
+            },
+            {
+              "upc": "070330722606",
+              "url": "https://www.amazon.com/BIC-Sun-Twist-Scented-Disposable-3-Count/dp/B00AUMDJ38",
+              "price": "$7.00",
+              "title": "BIC Soleil Comfort, 4 Flexible Blades and Comfortable Grip, Disposable Razors for Women, Assorted Colors, 3-Count",
+              "image": "https://m.media-amazon.com/images/I/71ncF43GWjL._AC_UL400_.jpg",
+              "productId": "B00AUMDJ38",
+              "productReviewsCount": "966",
+              "productRatings": "4.6",
+              "displayCategory": "Personal Care, Health & Beauty"
+            },
+            {
+              "upc": "070330724556",
+              "url": "https://www.amazon.com/BIC-Simply-Soleil-Razors-Count/dp/B00E4MQYLE",
+              "price": "$11.26",
+              "title": "BIC Simply Soleil Razors, 4 Count (Pack of 2)",
+              "image": "https://m.media-amazon.com/images/I/21amb7wTPkL._AC_UL400_.jpg",
+              "productId": "B00E4MQYLE",
+              "productReviewsCount": "4",
+              "productRatings": "3.3",
+              "displayCategory": "Personal Care, Health & Beauty"
+            },
+            {
+              "upc": "070330722590",
+              "url": "https://www.amazon.com/Bic-Flex-Quad-Shvr3ct-Size/dp/B01IAEMLRW",
+              "price": "$18.00",
+              "title": "Bic Flex 4 Quad Shvr3ct Size 3ct",
+              "image": "https://m.media-amazon.com/images/I/71DhXK-4I7L._AC_UL400_.jpg",
+              "productId": "B01IAEMLRW",
+              "productReviewsCount": "2",
+              "productRatings": "4.7",
+              "displayCategory": "Personal Care, Health & Beauty"
+            }
+          ]
+        },
+        {
+          "source": "q",
+          "imageUrl": "https://cdn.cpnscdn.com/static.coupons.com/ext/bussys/cpa/pod/09/351/3609351_f8830c4c-38ee-49c9-8f0d-c64a34c57d4b_high.jpg",
+          "value": "1",
+          "id": "6f297091-1c55-41c9-89cc-f35a6e7a9d50",
+          "description": "off any ONE (1) package of Scott® Bath Tissue (6 pack or larger)",
+          "brand": "Scott®",
+          "expiryDate": "7/30/2023 6:59:59 AM",
+          "retailer": "amazon",
+          "offerSummary": "Save $1.00",
+          "minQty": 1,
+          "cashbackProducts": [
+            {
+              "upc": "054000476181",
+              "url": "https://www.amazon.com/Scott-Comfortplus-Toilet-Tissue-Double/dp/B07BGLT25K",
+              "price": "$6.68",
+              "title": "Scott ComfortPlus Toilet Paper, 12 Double Rolls = 24 Regular Rolls, 231 Sheets Per Roll",
+              "image": "https://m.media-amazon.com/images/I/8133NmYmmWL._AC_UL400_.jpg",
+              "productId": "B07BGLT25K",
+              "productReviewsCount": "31,375",
+              "productRatings": "4.6",
+              "displayCategory": "Household"
+            },
+            {
+              "upc": "054000119712",
+              "url": "https://www.amazon.com/Scott-Sheets-Toilet-Paper-Tissue/dp/B00NU2590G",
+              "price": "$14.75",
+              "title": "Scott 1000 Sheets Per Roll, 8 Toilet Paper Rolls, Bath Tissue",
+              "image": "https://m.media-amazon.com/images/I/41Wyf7zdU1L._AC_UL400_.jpg",
+              "productId": "B00NU2590G",
+              "productReviewsCount": "2,238",
+              "productRatings": "4.4",
+              "displayCategory": "Household"
+            },
+            {
+              "upc": "054000133428",
+              "url": "https://www.amazon.com/Scott-Sheets-Regular-Tissue-Count/dp/B01L6Q01JG",
+              "price": "$53.99",
+              "title": "Scott Toilet Paper/Bath Bathroom Tissue, 12.3\" x 13.9\" x 13.9\", White 27 per Carton",
+              "image": "https://m.media-amazon.com/images/I/81AQdm01uWL._AC_UL400_.jpg",
+              "productId": "B01L6Q01JG",
+              "productReviewsCount": "64",
+              "productRatings": "4.6",
+              "displayCategory": "Household"
+            }
+          ]
+        },
+        {
+          "source": "q",
+          "imageUrl": "https://cdn.cpnscdn.com/static.coupons.com/ext/bussys/cpa/pod/16/281/3716281_f1c41f5b-90d8-47bc-8777-935361009aa9_high.jpg",
+          "value": "2.75",
+          "id": "54f0356b-95db-4689-a9f8-41629262e917",
+          "description": "Off Any ONE (1) GREENIES™ Canine Treats, Pill Pockets™ or Digestive Probiotic Supplement",
+          "brand": "GREENIES™",
+          "expiryDate": "7/31/2023 6:59:59 AM",
+          "retailer": "amazon",
+          "offerSummary": "Save $2.75",
+          "minQty": 1,
+          "cashbackProducts": [
+            {
+              "upc": "642863041150",
+              "url": "https://www.amazon.com/GREENIES-Original-Regular-Natural-Dental/dp/B00DQR4DX4",
+              "price": "$8.49",
+              "title": "GREENIES Original Regular Natural Dental Care Dog Treats, 6 oz. Pack (6 Treats)",
+              "image": "https://m.media-amazon.com/images/I/81sSo6gcvaL._AC_UL400_.jpg",
+              "productId": "B00DQR4DX4",
+              "productReviewsCount": "30,195",
+              "productRatings": "4.8",
+              "displayCategory": "Pets"
+            },
+            {
+              "upc": "642863041198",
+              "url": "https://www.amazon.com/GREENIES-Original-Regular-Natural-Dental/dp/B000KEVF32",
+              "price": "$32.98",
+              "title": "GREENIES Original Regular Natural Dog Dental Care Chews Oral Health Dog Treats, 27 oz. Pack (27 Treats)",
+              "image": "https://m.media-amazon.com/images/I/818pElou2hL._AC_UL320_.jpg",
+              "productId": "B000KEVF32",
+              "productReviewsCount": "30,195",
+              "productRatings": "4.8",
+              "displayCategory": "Pets"
+            },
+            {
+              "upc": "642863041105",
+              "url": "https://www.amazon.com/Greenies-Variety-Original-Dental-Treats/dp/B071F84YTX",
+              "price": "$35.96",
+              "title": "Greenies Large Variety Pack With 12 Oz. Original And 12 Oz. Blue Berry Dental Dog Treats",
+              "image": "https://m.media-amazon.com/images/I/61NB4z--EQL._AC_UL400_.jpg",
+              "productId": "B071F84YTX",
+              "productReviewsCount": "241",
+              "productRatings": "4.9"
+            },
+            {
+              "upc": "642863112737",
+              "url": "https://www.amazon.com/Greenies-ScaryBerry-Blueberry-Halloween-Natural/dp/B08BVSJYM1",
+              "price": "$9.98",
+              "title": "Greenies ScaryBerry Blueberry Flavor Large Halloween Natural Dental Dog Chew Treats, 6 oz. Pack (4-Count)",
+              "image": "https://m.media-amazon.com/images/I/71ZOAn4M8uL._AC_UL400_.jpg",
+              "productId": "B08BVSJYM1",
+              "productReviewsCount": "145",
+              "productRatings": "4.8",
+              "displayCategory": "Pets"
+            },
+            {
+              "upc": "642863102936",
+              "url": "https://www.amazon.com/Greenies-Original-Dental-Chews-Regular/dp/B01A5TQ8QK",
+              "price": "$39.92",
+              "title": "Dog Dental Treat, 6-Ct. Regular",
+              "image": "https://m.media-amazon.com/images/I/71Qcqbqv-1L._AC_UL400_.jpg",
+              "productId": "B01A5TQ8QK",
+              "displayCategory": "Pets"
+            }
+          ]
+        },
+        {
+          "source": "q",
+          "imageUrl": "https://cdn.cpnscdn.com/static.coupons.com/ext/bussys/cpa/pod/52/001/3652001_5d27d388-d2ac-4383-9737-db03618dca5e_high.jpg",
+          "value": "4",
+          "id": "dbb5a2da-113a-4b45-8fe1-277b37ebace5",
+          "description": "on any ONE (1) Brita Pitcher, Filtering Bottle or Standard Filter, 3ct+",
+          "brand": "Brita®",
+          "expiryDate": "8/20/2023 6:59:59 AM",
+          "retailer": "amazon",
+          "offerSummary": "Save $4.00",
+          "minQty": 1,
+          "cashbackProducts": [
+            {
+              "upc": "060258362152",
+              "url": "https://www.amazon.com/Brita-Stream-Pitcher-Replacement-Filter/dp/B01NBXOBNP",
+              "price": "$17.91",
+              "title": "Brita Stream Water Filter Replacements for Stream Pitchers and Dispensers, Lasts 2 Months, Reduces Chlorine Taste and Odor, 3 Count",
+              "image": "https://m.media-amazon.com/images/I/91AbO8+vdxL._AC_UL400_.jpg",
+              "productId": "B01NBXOBNP",
+              "productReviewsCount": "28,951",
+              "productRatings": "4.8",
+              "displayCategory": "Household"
+            },
+            {
+              "upc": "060258360943",
+              "url": "https://www.amazon.com/Brita-Small-Filter-Pitcher-Standard/dp/B015SY3WKM",
+              "price": "$22.79",
+              "title": "Brita Water Filter Pitcher for Tap and Drinking Water with 1 Standard Filter, Lasts 2 Months, 6-Cup Capacity, BPA Free, Red",
+              "image": "https://m.media-amazon.com/images/I/71bPm6M89kL._AC_UL400_.jpg",
+              "productId": "B015SY3WKM",
+              "productReviewsCount": "15,131",
+              "productRatings": "4.7"
+            },
+            {
+              "upc": "060258364064",
+              "url": "https://www.amazon.com/Brita-Premium-Filtering-Bottle-Filter/dp/B07QVTQ4ZS",
+              "price": "$31.49",
+              "title": "Brita Insulated Filtered Water Bottle with Straw, Reusable, Stainless Steel Metal, Glacier, 20 Ounce",
+              "image": "https://m.media-amazon.com/images/I/51wH8k2NRVL._AC_UL400_.jpg",
+              "productId": "B07QVTQ4ZS",
+              "productReviewsCount": "10,321",
+              "productRatings": "4.6",
+              "displayCategory": "Household"
+            },
+            {
+              "upc": "060258354584",
+              "url": "https://www.amazon.com/Brita-Pacifica-Water-Filter-Pitcher/dp/B00K2E774G",
+              "price": "$33.94",
+              "title": "Brita Pacifica Water Filtration Systems, Large, White",
+              "image": "https://m.media-amazon.com/images/I/61MLbQfZskS._AC_UL400_.jpg",
+              "productId": "B00K2E774G",
+              "productReviewsCount": "250",
+              "productRatings": "4.3",
+              "displayCategory": "Household"
+            },
+            {
+              "upc": "060258353761",
+              "url": "https://www.amazon.com/Brita-Vintage-Pitcher-2-Filters/dp/B001L95YRI",
+              "price": "$38.90",
+              "title": "Brita Vintage Pitcher with 2 Filters",
+              "image": "https://m.media-amazon.com/images/I/41cGTR3eq2L._AC_UL400_.jpg",
+              "productId": "B001L95YRI",
+              "productReviewsCount": "150",
+              "productRatings": "4.0",
+              "displayCategory": "Household"
+            },
+            {
+              "upc": "060258363241",
+              "url": "https://www.amazon.com/Replacement-Activated-Carbon-Bottle-Stainless/dp/B0B3JB3PKP",
+              "price": "$16.99",
+              "title": "Xcivi Replacement Activated Carbon Water Bottle Filter for Brita BB06, Brita Hard Sided, Sport and Stainless Steel Bottle Filter, 10 Count",
+              "image": "https://m.media-amazon.com/images/I/8182gCWv5pL._AC_UL400_.jpg",
+              "productId": "B0B3JB3PKP",
+              "productReviewsCount": "13",
+              "productRatings": "4.1",
+              "displayCategory": "Household"
+            }
+          ]
+        },
+        {
+          "source": "q",
+          "imageUrl": "https://cdn.cpnscdn.com/static.coupons.com/ext/bussys/cpa/pod/29/261/3729261_914a42d6-82e4-4294-a66a-ccd97d049e5e_high.jpg",
+          "value": "3",
+          "id": "845ab245-5e11-4e06-86ea-57a4b2b970fc",
+          "description": "On any ONE (1) Revlon Lip excluding Revlon Kiss Balm",
+          "brand": "Revlon Lip Cosmetics",
+          "expiryDate": "8/13/2023 6:59:59 AM",
+          "retailer": "amazon",
+          "offerSummary": "Save $3.00",
+          "minQty": 1,
+          "cashbackProducts": [
+            {
+              "upc": "309971508844",
+              "url": "https://www.amazon.com/Revlon-Super-Lustrous-Lipstick-Shine/dp/B001LFJZJ0",
+              "price": "$6.44",
+              "title": "Revlon Super Lustrous Lipstick, High Impact Lipcolor with Moisturizing Creamy Formula, Infused with Vitamin E and Avocado Oil in Pinks, Rose & Shine (619) 0.15 oz",
+              "image": "https://m.media-amazon.com/images/I/812l3n9XMPL._AC_UL400_.jpg",
+              "productId": "B001LFJZJ0",
+              "productReviewsCount": "26,476",
+              "productRatings": "4.5",
+              "displayCategory": "Personal Care, Health & Beauty"
+            },
+            {
+              "upc": "309975316735",
+              "url": "https://www.amazon.com/Colorstay-overtime-lipcolor-Longwearing-Lipstick/dp/B07CKM91TK",
+              "price": "$8.81",
+              "title": "Revlon Liquid Lipstick with Clear Lip Gloss, ColorStay Overtime Lipcolor, Dual Ended with Vitamin E in Plums & Berries, 500 Limitless Black Cherry, 0.07 Oz",
+              "image": "https://m.media-amazon.com/images/I/61MC+4ntOVL._AC_UL400_.jpg",
+              "productId": "B07CKM91TK",
+              "productReviewsCount": "20,341",
+              "productRatings": "4.5",
+              "displayCategory": "Personal Care, Health & Beauty"
+            },
+            {
+              "upc": "309970093433",
+              "url": "https://www.amazon.com/Revlon-Lustrous-Luscious-Lipstick-Heartbreaker/dp/B07XTRW2JK",
+              "price": "$6.48",
+              "title": "REVLON Super Lustrous The Luscious Mattes Lipstick, in Pink, 005 Heartbreaker, 0.15 oz",
+              "image": "https://m.media-amazon.com/images/I/81vRiJmd84L._AC_UL400_.jpg",
+              "productId": "B07XTRW2JK",
+              "productReviewsCount": "12,258",
+              "productRatings": "4.2",
+              "displayCategory": "Personal Care, Health & Beauty"
+            },
+            {
+              "upc": "309970117108",
+              "url": "https://www.amazon.com/ColorStay-Lipstick-Longwear-Formulated-Currant/dp/B08MRZYG1W",
+              "price": "$9.52",
+              "title": "Revlon Liquid Lipstick, Lip Makeup, ColorStay Satin Ink, Longwear Rich Lip Colors, Formulated with Black Currant Seed Oil, 009 Speak Up, 0.17 Fl Oz",
+              "image": "https://m.media-amazon.com/images/I/71-GnRiuf7L._AC_UL400_.jpg",
+              "productId": "B08MRZYG1W",
+              "productReviewsCount": "9,509",
+              "productRatings": "4.2",
+              "displayCategory": "Personal Care, Health & Beauty"
+            },
+            {
+              "upc": "309973174306",
+              "url": "https://www.amazon.com/Revlon-ColorStay-Ultimate-Lipstick-Miracle/dp/B002H96420",
+              "price": "$9.99",
+              "title": "Revlon Liquid Lipstick, Face Makeup, ColorStay Ultimate, Longwear Rich Lip Colors, Satin Finish, 030 Miracle Mauve, 0.07 Oz",
+              "image": "https://m.media-amazon.com/images/I/61e+3ZYJKYL._AC_UL400_.jpg",
+              "productId": "B002H96420",
+              "productReviewsCount": "9,147",
+              "productRatings": "4.6",
+              "displayCategory": "Personal Care, Health & Beauty"
+            },
+            {
+              "upc": "309970187064",
+              "url": "https://www.amazon.com/REVLON-Lipstick-ColorStay-Waterproof-Smudgeproof/dp/B0BHJMDCRQ",
+              "price": "$9.48",
+              "title": "REVLON Lipstick, ColorStay Suede Ink, Built-in Primer, Infused with Vitamin E, Waterproof, Smudgeproof, Matte Color, 003 Want it All (Pack of 1)",
+              "image": "https://m.media-amazon.com/images/I/81vTsodbi9L._AC_UL400_.jpg",
+              "productId": "B0BHJMDCRQ",
+              "productReviewsCount": "1,567",
+              "productRatings": "4.2",
+              "displayCategory": "Personal Care, Health & Beauty"
+            }
+          ]
+        },
+        {
+          "source": "q",
+          "imageUrl": "https://cdn.cpnscdn.com/static.coupons.com/ext/bussys/cpa/pod/51/271/3651271_1db83e66-d6fd-4726-a5bb-fa26a2037f26_high.jpg",
+          "value": "3",
+          "id": "821fdccd-919a-4414-806a-5249da0357e4",
+          "description": "ONE (1) Select Zarbees Children's Product",
+          "brand": "Zarbee's®",
+          "expiryDate": "8/26/2023 6:59:59 AM",
+          "retailer": "amazon",
+          "offerSummary": "$3.00 OFF",
+          "minQty": 1,
+          "cashbackProducts": [
+            {
+              "upc": "898115002732",
+              "url": "https://www.amazon.com/Zarbees-Naturals-Childrens-Elderberry-Support/dp/B00LO54ETI",
+              "price": "$8.75",
+              "title": "Zarbee's Elderberry Gummies for Kids with Vitamin C; Zinc & Elderberry; Daily Childrens Immune Support Vitamins Gummy for Children Ages 2 and Up; Natural Berry Flavor; 21 Count",
+              "image": "https://m.media-amazon.com/images/I/71LmWpCxM0L._AC_UL400_.jpg",
+              "productId": "B00LO54ETI",
+              "productReviewsCount": "24,593",
+              "productRatings": "4.7",
+              "displayCategory": "Personal Care, Health & Beauty"
+            },
+            {
+              "upc": "858438005384",
+              "url": "https://www.amazon.com/Zarbees-Naturals-Complete-Multivitamin-Essential/dp/B01F1G7TJW",
+              "price": "$14.26",
+              "title": "Zarbee's Toddler Vitamins, Complete Multivitamin with Vitamin A, C, D3 & B-complex, Easy to Chew, Gluten, Soy, Nut & Dairy Free, Natural Fruit Flavors, 2-3 Years, 110 Count",
+              "image": "https://m.media-amazon.com/images/I/71TgETt99ML._AC_UL400_.jpg",
+              "productId": "B01F1G7TJW",
+              "productReviewsCount": "16,287",
+              "productRatings": "4.4",
+              "displayCategory": "Personal Care, Health & Beauty"
+            },
+            {
+              "upc": "858438005315",
+              "url": "https://www.amazon.com/Zarbees-Naturals-Vitamin-Supplement-Bottle/dp/B01F2H982Q",
+              "price": "$7.99",
+              "title": "Zarbee's Vitamin D Drops for Infants, 400IU (10mcg) Baby & Toddler Liquid Supplement, Newborn & Up, Dropper Syringe Included, 0.47 Fl Oz",
+              "image": "https://m.media-amazon.com/images/I/71jS+YsL5IL._AC_UL400_.jpg",
+              "productId": "B01F2H982Q",
+              "productReviewsCount": "13,315",
+              "productRatings": "4.7",
+              "displayCategory": "Personal Care, Health & Beauty"
+            },
+            {
+              "upc": "858438005414",
+              "url": "https://www.amazon.com/Zarbees-Naturals-Soothing-Eucalyptus-Lavender/dp/B01J767BPY",
+              "price": "$6.38",
+              "title": "Zarbee's Baby Soothing Chest Rub with Eucalyptus & Lavender, Petroleum-Free Safe and Effective Formula, 1.5 Ounce",
+              "image": "https://m.media-amazon.com/images/I/61k330+9JWL._AC_UL400_.jpg",
+              "productId": "B01J767BPY",
+              "productReviewsCount": "8,128",
+              "productRatings": "4.8",
+              "displayCategory": "Personal Care, Health & Beauty"
+            },
+            {
+              "upc": "898115002541",
+              "url": "https://www.amazon.com/Zarbees-Naturals-Childrens-Flavored-effective/dp/B00C2WEJZ6",
+              "price": "$9.09",
+              "title": "Zarbee's Children's Cough Syrup + Mucus Daytime, Grape 4oz",
+              "image": "https://m.media-amazon.com/images/I/71H-lwOX5zL._AC_UL400_.jpg",
+              "productId": "B00C2WEJZ6",
+              "productReviewsCount": "7,819",
+              "productRatings": "4.7",
+              "displayCategory": "Personal Care, Health & Beauty"
+            }
+          ]
+        },
+        {
+          "source": "q",
+          "imageUrl": "https://cdn.cpnscdn.com/static.coupons.com/ext/bussys/cpa/pod/29/351/3729351_f4a69d20-6db7-460f-a275-9176bdd90c33_high.jpg",
+          "value": "3",
+          "id": "bbe85704-bd2e-4b7a-ac88-f0f5de0a5fd5",
+          "description": "On any ONE (1) Revlon Face Cosmetic",
+          "brand": "Revlon Face Cosmetics",
+          "expiryDate": "8/13/2023 6:59:59 AM",
+          "retailer": "amazon",
+          "offerSummary": "Save $3.00",
+          "minQty": 1,
+          "cashbackProducts": [
+            {
+              "upc": "309970004859",
+              "url": "https://www.amazon.com/Revlon-ColorStay-Liquid-Foundation-Combination/dp/B07GDZ62LX",
+              "price": "$12.48",
+              "title": "Revlon Liquid Foundation, ColorStay Face Makeup for Combination & Oily Skin, SPF 15, Medium-Full Coverage with Matte Finish, Sun Beige (392), 1.0 oz",
+              "image": "https://m.media-amazon.com/images/I/71+AOgxB10L._AC_UL320_.jpg",
+              "productId": "B07GDZ62LX",
+              "productReviewsCount": "22,714",
+              "productRatings": "4.5",
+              "displayCategory": "Personal Care, Health & Beauty"
+            },
+            {
+              "upc": "309970007126",
+              "url": "https://www.amazon.com/Revlon-PhotoReady-Anti-Pollution-Foundation-Walnut-75/dp/B07GDL8387",
+              "price": "$6.48",
+              "title": "Revlon PhotoReady Candid Natural Finish Foundation, with Anti-Pollution, Antioxidant, Anti-Blue Light Ingredients, 540 Walnut, 0.75 fl. oz.",
+              "image": "https://m.media-amazon.com/images/I/71Ekg3mYqHL._AC_UL320_.jpg",
+              "productId": "B07GDL8387",
+              "productReviewsCount": "7,624",
+              "productRatings": "4.4",
+              "displayCategory": "Personal Care, Health & Beauty"
+            },
+            {
+              "upc": "309970166151",
+              "url": "https://www.amazon.com/ColorStay-Concealer-Lightweight-Longlasting-Imperfections/dp/B09JBJSHSK",
+              "price": "$9.92",
+              "title": "Revlon ColorStay Skin Awaken 5-in-1 Concealer, Lightweight, Creamy Longlasting Face Makeup with Caffeine & Vitamin C, For Imperfections, Dark Circles & Redness, 060 Deep, 0.27 fl oz",
+              "image": "https://m.media-amazon.com/images/I/61wH3aYJkCL._AC_UL320_.jpg",
+              "productId": "B09JBJSHSK",
+              "productReviewsCount": "2,144",
+              "productRatings": "4.3",
+              "displayCategory": "Personal Care, Health & Beauty"
+            },
+            {
+              "upc": "309970208806",
+              "url": "https://www.amazon.com/Illuminance-Skin-Caring-Foundation-Hyaluronic-Nourishing/dp/B0BHLHN6KZ",
+              "price": "$13.48",
+              "title": "Revlon Illuminance Skin-Caring Liquid Foundation, Hyaluronic Acid, Hydrating and Nourishing Formula with Medium Coverage, 109 Light Ivory (Pack of 1)",
+              "image": "https://m.media-amazon.com/images/I/712JL6uKUNL._AC_UL320_.jpg",
+              "productId": "B0BHLHN6KZ",
+              "productReviewsCount": "543",
+              "productRatings": "4.3",
+              "displayCategory": "Personal Care, Health & Beauty"
+            },
+            {
+              "upc": "309970208929",
+              "url": "https://www.amazon.com/Illuminance-Skin-Caring-Foundation-Hyaluronic-Nourishing/dp/B0BHKD2KT1",
+              "price": "$13.48",
+              "title": "Revlon Illuminance Skin-Caring Liquid Foundation, Hyaluronic Acid, Hydrating and Nourishing Formula with Medium Coverage, 317 Tan Sand (Pack of 1)",
+              "image": "https://m.media-amazon.com/images/I/71cqk6z2glL._AC_UL320_.jpg",
+              "productId": "B0BHKD2KT1",
+              "productReviewsCount": "543",
+              "productRatings": "4.3",
+              "displayCategory": "Personal Care, Health & Beauty"
+            }
+          ]
+        }
+      ],
+      "activatedOfferIds": [],
+      "submittedOfferIds": [],
+      "isSearchEnabled": true,
+      "domainData": "eyJEb21haW5OYW1lIjoiYW1hem9uLmNvbSIsIlNlYXJjaERhdGEiOlt7InR5cGUiOiJQYXRoQW5kUGFyYW1ldGVyIiwicGF0aCI6Ii9zIiwicGFyYW1ldGVyIjoiayIsInJlZ2V4RGF0YSI6eyJyZWdleCI6IiIsImluZGljZXMiOltdfX0seyJ0eXBlIjoiUGF0aEFuZFBhcmFtZXRlciIsInBhdGgiOiIvcyIsInBhcmFtZXRlciI6ImtleXdvcmRzIiwicmVnZXhEYXRhIjp7InJlZ2V4IjoiIiwiaW5kaWNlcyI6W119fSx7InR5cGUiOiJQYXRoQW5kUGFyYW1ldGVyIiwicGF0aCI6Ii9zIiwicGFyYW1ldGVyIjoiZmllbGQta2V5d29yZHMiLCJyZWdleERhdGEiOnsicmVnZXgiOiIiLCJpbmRpY2VzIjpbXX19LHsidHlwZSI6IlBhdGhBbmRQYXJhbWV0ZXIiLCJwYXRoIjoiL3NlYXJjaCIsInBhcmFtZXRlciI6InRlcm1zIiwicmVnZXhEYXRhIjp7InJlZ2V4IjoiIiwiaW5kaWNlcyI6W119fSx7InR5cGUiOiJQYXRoQW5kUGFyYW1ldGVyIiwicGF0aCI6Ii9zZWFyY2giLCJwYXJhbWV0ZXIiOiJzZWFyY2hUZXh0IiwicmVnZXhEYXRhIjp7InJlZ2V4IjoiIiwiaW5kaWNlcyI6W119fV0sIkNhdGVnb3J5RGF0YSI6W3sidHlwZSI6IlBhcmFtUmVnZXgiLCJwYXRoIjoiIiwicGFyYW1ldGVyIjoibm9kZSIsInJlZ2V4RGF0YSI6eyJyZWdleCI6IihbMC05XSspIiwiaW5kaWNlcyI6WzFdfX0seyJ0eXBlIjoiUGFyYW1SZWdleCIsInBhdGgiOiIiLCJwYXJhbWV0ZXIiOiJyaCIsInJlZ2V4RGF0YSI6eyJyZWdleCI6IiguKik6KFswLTldKykiLCJpbmRpY2VzIjpbMl19fSx7InR5cGUiOiJQYXRoUmVnZXgiLCJwYXRoIjoiIiwicGFyYW1ldGVyIjoiIiwicmVnZXhEYXRhIjp7InJlZ2V4IjoiL2dwL2dvbGRib3goLiopIiwiaW5kaWNlcyI6WzFdfX1dLCJQZHBEYXRhIjpbeyJ0eXBlIjoiUGF0aFJlZ2V4IiwicGF0aCI6IiIsInBhcmFtZXRlciI6IiIsInJlZ2V4RGF0YSI6eyJyZWdleCI6Ii9kcC8oW2EtekEtWjAtOV0rKSgkfC8pfC9ncC9wcm9kdWN0LyhbYS16QS1aMC05XSspKCR8LykiLCJpbmRpY2VzIjpbMSwzXX19XSwiQ3VzdG9tQXV0b1Nob3dEYXRhIjpbeyJhdXRvU2hvd1R5cGUiOiJBbWF6b25GcmVzaCIsImNvb2xEb3duSW5TZWNvbmRzIjoiMTQ0MDAiLCJtYXRjaERhdGEiOlt7InR5cGUiOiJQYXJhbVJlZ2V4IiwicGF0aCI6IiIsInBhcmFtZXRlciI6ImFsbUJyYW5kSWQiLCJyZWdleERhdGEiOnsicmVnZXgiOiJRVzFoZW05dUlFWnlaWE5vIiwiaW5kaWNlcyI6WzBdfX1dfV0sIkFkZGVkVG9DYXJ0RGF0YSI6W3sidHlwZSI6IlBhdGhBbmRQYXJhbWV0ZXIiLCJwYXRoIjoiL2NhcnQvc21hcnQtd2Fnb24iLCJwYXJhbWV0ZXIiOiJuZXdJdGVtcyIsInJlZ2V4RGF0YSI6eyJyZWdleCI6IiIsImluZGljZXMiOltdfX0seyJ0eXBlIjoiUGF0aFJlZ2V4IiwicGF0aCI6IiIsInBhcmFtZXRlciI6IiIsInJlZ2V4RGF0YSI6eyJyZWdleCI6Ii9jYXJ0L2FkZC10by1jYXJ0IiwiaW5kaWNlcyI6WzBdfX1dLCJjYXRlZ29yeUF1dG9TaG93Q29vbGRvd25JblNlY29uZHMiOjE0NDAwfQ==",
+      "isCashBackEnabled": true,
+      "categories": [
+        {
+          "id": "6520435011",
+          "name": "Beverages",
+          "count": 2
+        },
+        {
+          "id": "18773724011",
+          "name": "Food",
+          "count": 10
+        },
+        {
+          "id": "2975446011",
+          "name": "Pets",
+          "count": 13
+        },
+        {
+          "id": "165797011",
+          "name": "Baby",
+          "count": 15
+        },
+        {
+          "id": "18776917011",
+          "name": "Household",
+          "count": 38
+        },
+        {
+          "id": "17242866011",
+          "name": "Health & Beauty",
+          "count": 113
+        }
+      ],
+      "isSignInSupportedDomain": true,
+      "variations": {
+        "autoShowUX": "variation2",
+        "autoShowSpbUX": "variation7",
+        "searchIgnoreAlreadyShown": "disabled",
+        "recentlyViewedSpb": "enabled",
+        "isQAddToCartEnabled": "enabled",
+        "isAddToCartEnabled": "enabled",
+        "relatedOfferOnAddToCart": "enabled",
+        "spbActivatedCart": "enabled",
+        "receiptScanningBanner": "enabled",
+        "receiptScanningDeal": "enabled",
+        "autoShowSpbHomePageUX": "variation3",
+        "userRatings": "variation2"
+      },
+      "isAnonymousFlowEnabled": false,
+      "isSponsored": true,
+      "isQEnabled": true
+    },
+    "isPackageTrackingEnabled": true,
+    "aFDMarket": "en-us",
+    "market": "en-us",
+    "userPersonalizationInfo": {},
+    "userInfo": { "ageGroup": 0 },
+    "isSSOEnabled": false,
+    "clientInfo": {},
+    "autos": { "isAutosSupportedDomain": false },
+    "contentDataType": "Deals",
+    "promotionalCampaignDealsResponse": {
+      "isEnrolled": false,
+      "isCashbackPlatformAcknowledged": false
+    }
+  },
+  "comparableOffers": {
+    "value": [],
+    "freeOfferValue": [],
+    "segment": "Others",
+    "contentDataType": "PriceCompare",
+    "debug": { "globalOfferIds": [] }
+  },
+  "priceHistory": {
+    "triggerPriceHistoryAlert": false,
+    "triggerInsight": "ShowInsight",
+    "contentDataType": "PriceHistory",
+    "debug": {
+      "nUrl": "bing.com/aclick?ld=e8c_hgsco2d1vywohxcoihjtvucuyalh_wjcq9xofzcawduyzmsmb0_qw7c-dxgqkw9axwsrvfwe6x6sh0xahhbverjfwdcafbhurdr34et0e2oz84qajjk0apb09kzcqhwtutywksp0cswvulpsepxjacxgpjvlkd9nmdfmxvappkbecq&u=ahr0chmlm2elmmylmmz3d3cuyw1hem9ulmnvbsuyzkzhbw91cy1bbw9zlunvb2tpzxmtq2hvy29syxrllvnpbmdszsuyzmrwjtjmqja3mtfzq1zztiuyznjlziuzzgfzy19kzl9cmdcxmvldvllojtnmdgfnjtnkym5nc210cghzbnvzltiwjti2bglua0nvzgulm2rkzjalmjzodmfkawqlm2q4mdc0ntuwmjc0mjc4niuynmh2bmv0dyuzzhmlmjzodnftdcuzzgulmjzodmjtdcuzzgjljti2ahzkzxylm2rjjti2ahzsb2npbnqlm2qlmjzodmxvy3boesuzzcuynmh2dgfyz2lkjtnkcgxhltq1odqznduwmzk3otc2otqlmjzwc2mlm2qx&rlid=1a6b999b4ffa16baaee6fd58a26a7d98",
+      "productLevelNormalizedUrl": "bing.com/aclick",
+      "v1HasGOId": "False",
+      "v2HasGOId": "False"
+    }
+  },
+  "impressionId": "4A53B4AB3BDC451CBC08DCAC511F1324"
+}

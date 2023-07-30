@@ -1,0 +1,75 @@
+@using System.Timers
+
+<div class="bot-message bot-message-text">
+    @* Add a ternary operator to check the currentIndex *@
+    @((MarkupString)Content.Substring(0, currentIndex <= Content.Length ? currentIndex : Content.Length))
+</div>
+
+@* Use a property to hold the temporary content *@
+@code {
+    [Parameter]
+    public string Content { get; set; }
+
+    @* Use a field to hold the current index of the content *@
+    private int currentIndex = 0;
+
+    @* Use a field to hold the timer *@
+    private Timer timer;
+
+    @* Use a lifecycle method to initialize the timer when the component is initialized *@
+    protected override void OnInitialized()
+    {
+        // Set the timer interval to 75 milliseconds
+        timer = new Timer(75);
+        // Set the timer callback to update the content
+        timer.Elapsed += (sender, args) => UpdateContent();
+        // Start the timer
+        timer.Start();
+    }
+
+    @* Use a method to update the content *@
+    private async void UpdateContent()
+    {
+        // Check if the current index is less than the content length
+        if (currentIndex < Content.Length)
+        {
+            // Increment the current index by 3
+            currentIndex += 3;
+            // Invoke Blazor to update the UI
+            await InvokeAsync(StateHasChanged);
+        }
+        // Otherwise, stop the timer
+        else
+        {
+            timer.Stop();
+        }
+    }
+}
+
+<style>
+    .bot-message {
+        margin-right: auto;
+        text-align: left;
+        background-color: #c5cfd9;
+        border-radius: 5px;
+        margin-bottom: 10px;
+        word-break: break-word;
+        max-width: 95%;
+        overflow-wrap: break-word; /* Add this property */
+    }
+
+    .bot-message-text {
+        white-space: pre-wrap; /* Add this property */
+    }
+        .bot-message-text ul {
+            list-style-type: disc; /* Use discs for bullet points */
+            margin: 0; /* Remove margin */
+            padding-left: 20px; /* Add some padding to the left */
+            margin-bottom: 10px; /* Remove extra space between the lists */
+        }
+
+        .bot-message-text li {
+            margin-bottom: 0; /* Remove extra space between the list items */
+            line-height: 1.2; /* Adjust this value as needed */
+        }
+</style>
