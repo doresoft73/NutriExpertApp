@@ -447,7 +447,6 @@
         try
         {
             HttpResponseMessage response = await httpClient.GetAsync(ApiBaseUrl + "search?q=" + Uri.EscapeDataString(entityName) + "&appid=8F57215FA513CFCF117BCA94D5E5AD458F470894&traffictype=Internal_monitor&form=monitr&adunitid=169243&propertyid=294294&adtypesfilter=productads&mkt=en-us");
-            response = 
 
             if (response.IsSuccessStatusCode)
             {
