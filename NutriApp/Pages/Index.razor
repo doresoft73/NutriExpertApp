@@ -12,11 +12,9 @@
 @using System.Threading.Tasks;
 @using Newtonsoft.Json.Linq;
 @using Newtonsoft.Json;
+@using System.Net.Http.Headers;
 @inject ImageOCR cat
 @inject IJSRuntime JSRuntime;
-
-
-
 
 <!-- Chat container -->
 <div class="main-container">
@@ -47,6 +45,75 @@
                     </li>
                 }
             </ul>
+            @*<div id="container">
+                <div id="slider-container">
+                  <span onclick="slideRight()" class="btn"></span>
+                    <div id="slider">
+                      <div class="slide"><span>1</span></div>
+                      <div class="slide"><span>2</span></div>
+                      <div class="slide"><span>3</span></div>
+                      <div class="slide"><span>4</span></div>
+                      <div class="slide"><span>5</span></div>
+                      <div class="slide"><span>6</span></div>
+                      <div class="slide"><span>7</span></div>
+                      <div class="slide"><span>8</span></div>
+                      <div class="slide"><span>9</span></div>
+                      <div class="slide"><span>10</span></div>
+                  </div>
+                  <span onclick="slideLeft()" class="btn"></span>
+                </div>
+             </div>*@
+            <div style="width: 70%;">
+                 @if (productItems[0] != null) {
+                    @*<Carousel DataSource="productItems" DisplayMode="CarouselDisplayMode.Multiple"></Carousel>*@
+                    <div class="container text-center my-3">
+                      <div class="row mx-auto my-auto justify-content-center">
+                            <div id="recipeCarousel" class="carousel slide" data-bs-ride="carousel">
+                              <div class="carousel-inner" role="listbox">
+                                  @code {
+                                    int idx = 0;
+                                  }
+                                    @foreach(var item in productItems)
+                                    {
+                                        @if(idx == 0)
+                                        {
+                                            <div class="carousel-item active">
+                                                <div class="col-md-3">
+                                                    <div class="card">
+                                                        <div class="card-img">
+                                                            <img src=@item.image class="img-fluid">
+                                                        </div>
+                                                        <div class="card-img-overlay"><a href="@item.link">@item.title</a></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            idx = 1;
+                                            continue;
+                                        }
+                                        <div class="carousel-item">
+                                            <div class="col-md-3">
+                                                <div class="card">
+                                                    <div class="card-img">
+                                                        <img src=@item.image class="img-fluid">
+                                                    </div>
+                                                    <div class="card-img-overlay"><a href="@item.link">@item.title</a></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    }
+                              </div>
+                              <a class="carousel-control-prev bg-transparent w-aut" href="#recipeCarousel" role="button" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                              </a>
+                              <a class="carousel-control-next bg-transparent w-aut" href="#recipeCarousel" role="button" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                              </a>
+                          </div>
+                        </div>
+                    </div>
+                 }
+            </div>
+            
             <!-- Loading icon -->
             @if (IsBotBusy)
             {
@@ -129,15 +196,89 @@
     .custom-file-input:hover {
         background-color: #436f9c;
     }
+
+    /* Slider style */
+    #container {
+    margin: 0;
+    padding: 0;
+    background: teal;
+    display: grid ;
+    place-items: center
+  }
+  
+  #slider-container {
+    height: 300px;
+    width: 85vw;
+    max-width: 1400px;
+    background: #54d5e4;
+    box-shadow: 5px 5px 8px gray inset;
+    position: relative;
+    overflow: hidden;
+    padding: 20px;
+  }
+  
+  #slider-container .btn {
+    position: absolute;
+    top: calc(50% - 30px);
+    height: 30px;
+    width: 30px;
+    border-left: 8px solid pink;
+    border-top: 8px solid pink;
+  }
+  
+  #slider-container .btn:hover {
+    transform: scale(1.2);
+  }
+  
+  #slider-container .btn.inactive {
+    border-color: rgb(153, 121, 126)
+  }
+  
+  #slider-container .btn:first-of-type {
+    transform: rotate(-45deg);
+    left: 10px
+  }
+  
+  #slider-container .btn:last-of-type {
+    transform: rotate(135deg);
+    right: 10px;
+  }
+  
+  #slider-container #slider {
+    display: flex;
+    width: 1000%;
+    height: 100%; 
+    transition: all .5s;
+  }
+  
+  #slider-container #slider .slide {
+    height: 90%;
+    margin: auto 10px;
+    background-color: #a847a4;
+    box-shadow: 2px 2px 4px 2px white, -2px -2px 4px 2px white;
+    display: grid;
+    place-items: center;
+    width: calc(20vw - 20px);
+  }
+  
+  #slider-container #slider .slide span {
+    color: white;
+    font-size: 150px;
+  }
 </style>
 
 
 
 @code {
+    static int nProduct = 10;
+    dynamic[] productItems = new dynamic[nProduct];
+
     //Variables
     List<ChatMessage> ChatMessages { get; set; } = new List<ChatMessage>(); // Use a list of ChatMessage objects instead of strings
     string UserInput = "";// Use a property instead of a field
     bool IsBotBusy { get; set; } // Use a property to indicate if the bot is busy
+    bool bPrintProductAds { get; set; } // Check if print products list Ads
+    bool bTaskCreated { get; set; } // Check if print products list Ads
 
     // Add the input file element as a field
     private InputFile inputFile;
@@ -248,9 +389,9 @@
         fileName = file.Name;
 
         // Define a path to save the file in the server folder "uploads"
-        var path = Path.Combine(Path.GetTempPath(), "uploads", fileName);
+        var path = System.IO.Path.Combine(System.IO.Path.GetTempPath(), "uploads", fileName);
         // Create the folder if it does not exist
-        Directory.CreateDirectory(Path.GetDirectoryName(path));
+        Directory.CreateDirectory(System.IO.Path.GetDirectoryName(path));
 
         // Create a stream to write the file to the path
         using (var writeStream = new FileStream(path, FileMode.Create))
@@ -311,7 +452,11 @@
     {
         if (response.Contains("The name of the product is:"))
         {
-            var needtoformatTask = ExtractProductName(response);
+            if (productItems[0] == null)
+            {
+                var needtoformatTask = ExtractProductName(response);
+            }
+
             // print blob here
             return response;
         }
@@ -436,72 +581,202 @@
         // public List<OfferData> UPIresult { get; set; }
     }
 
-    public async Task<SearchResult> EntitySearch(string entityName)
+    public static async Task merchant_google_products_task_post(string entityName)
     {
-        string ApiBaseUrl = "https://www.bingapis.com/api/v7/ads/";
-        HttpClient httpClient = new HttpClient();
-
-        // Set the user agent for the HTTP client
-        httpClient.DefaultRequestHeaders.UserAgent.ParseAdd("Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; WOW64; Trident/5.0; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0; Zune 4.0; InfoPath.3; MS-RTC LM 8; .NET4.0C; .NET4.0E)");
-
-        try
-        {
-            HttpResponseMessage response = await httpClient.GetAsync(ApiBaseUrl + "search?q=" + Uri.EscapeDataString(entityName) + "&appid=8F57215FA513CFCF117BCA94D5E5AD458F470894&traffictype=Internal_monitor&form=monitr&adunitid=169243&propertyid=294294&adtypesfilter=productads&mkt=en-us");
-
-            if (response.IsSuccessStatusCode)
+        var httpClient = new HttpClient
             {
-                string responseContent = await response.Content.ReadAsStringAsync();
-                Console.WriteLine("API response: " + responseContent);
+                BaseAddress = new Uri("https://api.dataforseo.com/"),
+                // Instead of 'dotnetmaster7@gmail.com' and '49795b59dd22b343' use your credentials from https://app.dataforseo.com/api-dashboard
+                DefaultRequestHeaders = { Authorization = new AuthenticationHeaderValue("Basic", Convert.ToBase64String(Encoding.ASCII.GetBytes("dotnetmaster7@gmail.com:49795b59dd22b343"))) }
+            };
+        var postData = new List<object>();
+        // example #1 - a simple way to set a task
+        // this way requires you to specify a location, a language of search, and a keyword.
+        postData.Add(new
+        {
+            location_name = "United States",
+            language_name = "English",
+            keyword = entityName
+        });
+        // POST /v3/merchant/google/products/task_post
+        var taskPostResponse = await httpClient.PostAsync("/v3/merchant/google/products/task_post", new StringContent(JsonConvert.SerializeObject(postData)));
+        var result = JsonConvert.DeserializeObject<dynamic>(await taskPostResponse.Content.ReadAsStringAsync());
+        // you can find the full list of the response codes here https://docs.dataforseo.com/v3/appendix/errors
+        if (result.status_code == 20000)
+        {
+            // do something with result
+            Console.WriteLine(result);
+        }
+        else
+            Console.WriteLine($"error. Code: {result.status_code} Message: {result.status_message}");
+    }
 
-                // Do something with the API response here
-                AdsResponse adsResponse = JsonConvert.DeserializeObject<AdsResponse>(responseContent);
-                // Now you can access the data using the 'adsResponse' object
+    // Get a list of completed tasks
 
-                // Assuming that 'value' is a list of product ads
-                if (adsResponse.value != null && adsResponse.value.Count > 0)
+    public static async Task merchant_google_products_tasks_ready(string entityName)
+    {
+        var httpClient = new HttpClient
+            {
+                BaseAddress = new Uri("https://api.dataforseo.com/"),
+                // Instead of 'dotnetmaster7@gmail.com' and '49795b59dd22b343' use your credentials from https://app.dataforseo.com/api-dashboard
+                DefaultRequestHeaders = { Authorization = new AuthenticationHeaderValue("Basic", Convert.ToBase64String(Encoding.ASCII.GetBytes("dotnetmaster7@gmail.com:49795b59dd22b343"))) }
+            };
+        // using this method you can get a list of completed tasks
+        // GET /v3/merchant/google/products/tasks_ready
+        var response = await httpClient.GetAsync("/v3/merchant/google/products/tasks_ready");
+        var result = JsonConvert.DeserializeObject<dynamic>(await response.Content.ReadAsStringAsync());
+        // you can find the full list of the response codes here https://docs.dataforseo.com/v3/appendix/errors
+        if (result.status_code == 20000)
+        {
+            // do something with result
+            Console.WriteLine(result);
+        }
+        else
+            Console.WriteLine($"error. Code: {result.status_code} Message: {result.status_message}");
+    }
+
+    public static async Task<SearchResult> merchant_google_products_task_get()
+    {
+        var httpClient = new HttpClient
+            {
+                BaseAddress = new Uri("https://api.dataforseo.com/"),
+                // Instead of 'login' and 'password' use your credentials from https://app.dataforseo.com/api-dashboard
+                DefaultRequestHeaders = { Authorization = new AuthenticationHeaderValue("Basic", Convert.ToBase64String(Encoding.ASCII.GetBytes("dotnetmaster7@gmail.com:49795b59dd22b343"))) }
+            };
+        // #1 - using this method you can get a list of completed tasks
+        // GET /v3/merchant/google/products/tasks_ready
+        var response = await httpClient.GetAsync("/v3/merchant/google/products/tasks_ready");
+        var tasksInfo = JsonConvert.DeserializeObject<dynamic>(await response.Content.ReadAsStringAsync());
+        var tasksResponses = new List<dynamic>();
+        // you can find the full list of the response codes here https://docs.dataforseo.com/v3/appendix/errors
+        if (tasksInfo.status_code == 20000)
+        {
+            if (tasksInfo.tasks != null)
+            {
+                foreach (var tasks in tasksInfo.tasks)
                 {
-                    List<ProductAdData> adDataList = new List<ProductAdData>();
-
-                    foreach (var productAd in adsResponse.value)
+                    if (tasks.result != null)
                     {
-                        ProductAdData adData = new ProductAdData
-                            {
-                                ProductName = productAd.offer.itemOffered.name,
-                                Domain = productAd.offer.seller.name,
-                                Price = productAd.offer.price + " " + productAd.offer.priceCurrency,
-                                Description = productAd.offer.itemOffered.description,
-                                url = productAd.offer.url,
-                                contentUrl = productAd.offer.itemOffered.image.contentUrl,
-                            };
-
-                        adDataList.Add(adData);
-                    }
-
-                    // Assuming MakeJsonPostRequestAsync returns Task<List<OfferData>>
-                    //Task<List<OfferData>> task = MakeJsonPostRequestAsync(adDataList);
-                    // Await the task to get the result
-                    //List<OfferData> UPIresult = await task;
-
-                    // Create an instance of SearchResult and return it
-                    return new SearchResult
+                        foreach (var task in tasks.result)
                         {
-                            AdDataList = adDataList,
-                           // UPIresult = UPIresult
-                        };
+                            if (task.endpoint_advanced != null)
+                            {
+                                // #2 - using this method you can get results of each completed task
+                                // GET /v3/merchant/google/products/task_get/html/$id
+                                var taskGetResponse = await httpClient.GetAsync((string)task.endpoint_advanced);
+                                var taskResultObj = JsonConvert.DeserializeObject<dynamic>(await taskGetResponse.Content.ReadAsStringAsync());
+                                Console.WriteLine(taskResultObj.tasks[0]);
+                                Console.WriteLine("responded Product Number is :" + taskResultObj.tasks[0].result[0].items_count);
+                                if (taskResultObj.tasks != null)
+                                {
+                                    var fst = taskResultObj.tasks.First;
+                                    // you can find the full list of the response codes here https://docs.dataforseo.com/v3/appendix/errors
+                                    if (fst.status_code >= 40000 || fst.result == null)
+                                        Console.WriteLine($"error. Code: {fst.status_code} Message: {fst.status_message}");
+                                    else if (taskResultObj.tasks[0].result[0].items_count <= 0)
+                                    {
+                                        Console.WriteLine($"No matching product!");
+                                    }
+                                    else
+                                    {
+                                        //var items = taskResultObj.tasks[0].result[0].items;
+                                        //var nProduct = 0;
+                                        //foreach (var item in items)
+                                        //{
+                                        //    var subItems = item.items;
+                                        //    if (subItems != null)
+                                        //    {
+                                        //        foreach (var subItem in subItems)
+                                        //        {
+                                        //            Console.WriteLine(subItem.product_images);
+                                        //            nProduct++;
+                                        //        }
+                                        //    }
+                                        //    else
+                                        //    {
+                                        //        Console.WriteLine(item.product_images);
+                                        //        nProduct++;
+                                        //    }
+                                        //}
+
+                                        //Console.WriteLine("Total Product Number is " + nProduct);
+                                        //if (nextItem != null) Console.WriteLine(taskResultObj.tasks[0].result[0].items[0].items);
+
+                                        var items = taskResultObj.tasks[0].result[0].items;
+
+                                        // Search Product Number
+                                        int itemCount = 50;
+                                        if (items.Count < 50) itemCount = items.Count;
+                                        List<ProductAdData> adDataList = new List<ProductAdData>();
+                                        ManualResetEvent[] resetEvents = new ManualResetEvent[itemCount];
+
+                                        for (int i = 0; i < itemCount; i++)
+                                        {
+                                            dynamic item = items[i];
+
+                                            resetEvents[i] = new ManualResetEvent(false);
+                                            ThreadPool.QueueUserWorkItem(new WaitCallback((dynamic index) =>
+                                            {
+                                                if (item.title != null && item.domain != null && item.price != null && item.currency != null && item.description != null && item.shopping_url != null && item.product_images != null)
+                                                {
+                                                    ProductAdData adData = new ProductAdData
+                                                        {
+                                                            ProductName = item.title.ToString(),
+                                                            Domain = item.domain.ToString(),
+                                                            Price = item.price.ToString() + " " + item.currency.ToString(),
+                                                            Description = item.description.ToString(),
+                                                            url = item.shopping_url.ToString(),
+                                                            contentUrl = item.product_images.ToString(),
+                                                        };
+
+                                                    lock (adDataList)
+                                                        adDataList.Add(adData);
+                                                }
+
+
+                                                resetEvents[(int)index].Set();
+                                            }), i);
+                                        }
+
+                                        WaitHandle.WaitAll(resetEvents);
+                                        Console.Write("Finish all");
+
+                                        return new SearchResult
+                                            {
+                                                AdDataList = adDataList,
+                                                // UPIresult = UPIresult
+                                            };
+                                    }
+                                }
+                            }
+                        }
+                    }
                 }
             }
-            else
+            if (tasksResponses.Count > 0)
             {
-                Console.WriteLine($"API request failed with status code: {response.StatusCode}");
+                // do something with result
+                Console.WriteLine(String.Join(Environment.NewLine, tasksResponses));
+
+                // Create an instance of SearchResult and return it
             }
         }
-        catch (HttpRequestException ex)
-        {
-            Console.WriteLine($"Error occurred during the API request: {ex.Message}");
-        }
+        else
+            Console.WriteLine($"error. Code: {tasksInfo.status_code} Message: {tasksInfo.status_message}");
+
+        return null;
+    }
+
+    public async Task<SearchResult> EntitySearch(string entityName)
+    {
+        await merchant_google_products_task_post(entityName);
+        await merchant_google_products_tasks_ready(entityName);
+        var searchResult = await merchant_google_products_task_get();
+        // Get the shopping product list by Google Shopping API
+        
 
         // Return null if there was an error or no data found
-        return null;
+        return searchResult;
     }
 
     public class ApiResponse
@@ -763,25 +1038,48 @@
                     {
                         // Trim the product name to end at the first occurrence of a period (.)
                         productName = productName.Substring(0, periodIndex + 1);
+                        bPrintProductAds = false;
+                        bTaskCreated = false;
                     }
+
                     break;
                 }
             }
         }
-        // need to go through and print the attributes in this object
-        var searchResult = await EntitySearch(productName);
-        StringBuilder resultString = new StringBuilder();
-        foreach (var adData in searchResult.AdDataList)
+
+        if (bPrintProductAds == false)
         {
-            resultString.AppendLine("Product Name: " + adData.ProductName);
-            resultString.AppendLine("Domain: " + adData.Domain);
-            resultString.AppendLine("Price: " + adData.Price);
-            resultString.AppendLine("Description: " + adData.Description);
-            resultString.AppendLine("URL: " + adData.url);
-            resultString.AppendLine("Content URL: " + adData.contentUrl);
-            resultString.AppendLine("----------------------------------------");
-            return resultString.ToString();
+            // need to go through and print the attributes in this object
+            var searchResult = await EntitySearch(productName);
+            StringBuilder resultString = new StringBuilder();
+
+            if (searchResult == null) return null;
+
+            for (int j = 0; j < nProduct; j++)
+            {
+                var adData = searchResult.AdDataList[j];
+                string[] imageUrls = JsonConvert.DeserializeObject<string[]>(adData.contentUrl);
+                productItems[j] = new { title = adData.ProductName, image = imageUrls[0], link = adData.url };
+            }
+
+            StateHasChanged(); // Invoke Blazor to update the UI
+
+            bPrintProductAds = true;
+
+            foreach (var adData in searchResult.AdDataList)
+            {
+                resultString.AppendLine("Product Name: " + adData.ProductName);
+                resultString.AppendLine("Domain: " + adData.Domain);
+                resultString.AppendLine("Price: " + adData.Price);
+                resultString.AppendLine("Description: " + adData.Description);
+                resultString.AppendLine("URL: " + adData.url);
+                resultString.AppendLine("Content URL: " + adData.contentUrl);
+                resultString.AppendLine("----------------------------------------");
+                return resultString.ToString();
+            }
         }
+        
+
         return null;
 
     }
@@ -802,4 +1100,9 @@
         await Task.CompletedTask;
         InitializeClientAndOptions();
     }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+	{
+		await JSRuntime.InvokeVoidAsync("startCarousel"); // NOTE: call JavaScript function with the ID of the carousel
+	}
 }

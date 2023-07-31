@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\Work\\NutriExpertApp\\WebAppTest\\WebAppTest.csproj": {}
+    "E:\\Work\\NutriExpertAppProject\\NutriExpertApp\\WebAppTest\\WebAppTest.csproj": {}
   },
   "projects": {
-    "E:\\Work\\NutriExpertApp\\NutriApp\\NutriApp.csproj": {
+    "E:\\Work\\NutriExpertAppProject\\NutriExpertApp\\NutriApp\\NutriApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Work\\NutriExpertApp\\NutriApp\\NutriApp.csproj",
+        "projectUniqueName": "E:\\Work\\NutriExpertAppProject\\NutriExpertApp\\NutriApp\\NutriApp.csproj",
         "projectName": "NutriApp",
-        "projectPath": "E:\\Work\\NutriExpertApp\\NutriApp\\NutriApp.csproj",
+        "projectPath": "E:\\Work\\NutriExpertAppProject\\NutriExpertApp\\NutriApp\\NutriApp.csproj",
         "packagesPath": "C:\\Users\\777\\.nuget\\packages\\",
-        "outputPath": "E:\\Work\\NutriExpertApp\\NutriApp\\obj\\",
+        "outputPath": "E:\\Work\\NutriExpertAppProject\\NutriExpertApp\\NutriApp\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -69,6 +69,10 @@
             "OpenAI.Net.Client": {
               "target": "Package",
               "version": "[1.0.20, )"
+            },
+            "Smart.Blazor": {
+              "target": "Package",
+              "version": "[15.2.1, )"
             }
           },
           "imports": [
@@ -94,14 +98,14 @@
         }
       }
     },
-    "E:\\Work\\NutriExpertApp\\WebAppTest\\WebAppTest.csproj": {
+    "E:\\Work\\NutriExpertAppProject\\NutriExpertApp\\WebAppTest\\WebAppTest.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Work\\NutriExpertApp\\WebAppTest\\WebAppTest.csproj",
+        "projectUniqueName": "E:\\Work\\NutriExpertAppProject\\NutriExpertApp\\WebAppTest\\WebAppTest.csproj",
         "projectName": "WebAppTest",
-        "projectPath": "E:\\Work\\NutriExpertApp\\WebAppTest\\WebAppTest.csproj",
+        "projectPath": "E:\\Work\\NutriExpertAppProject\\NutriExpertApp\\WebAppTest\\WebAppTest.csproj",
         "packagesPath": "C:\\Users\\777\\.nuget\\packages\\",
-        "outputPath": "E:\\Work\\NutriExpertApp\\WebAppTest\\obj\\",
+        "outputPath": "E:\\Work\\NutriExpertAppProject\\NutriExpertApp\\WebAppTest\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -123,8 +127,8 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "E:\\Work\\NutriExpertApp\\NutriApp\\NutriApp.csproj": {
-                "projectPath": "E:\\Work\\NutriExpertApp\\NutriApp\\NutriApp.csproj"
+              "E:\\Work\\NutriExpertAppProject\\NutriExpertApp\\NutriApp\\NutriApp.csproj": {
+                "projectPath": "E:\\Work\\NutriExpertAppProject\\NutriExpertApp\\NutriApp\\NutriApp.csproj"
               }
             }
           }

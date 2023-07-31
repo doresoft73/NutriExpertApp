@@ -9,45 +9,45 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = NutriApp
 build_property.RootNamespace = NutriApp
-build_property.ProjectDir = E:\Work\NutriExpertApp\NutriApp\
+build_property.ProjectDir = E:\Work\NutriExpertAppProject\NutriExpertApp\NutriApp\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = E:\Work\NutriExpertApp\NutriApp
+build_property.MSBuildProjectDirectory = E:\Work\NutriExpertAppProject\NutriExpertApp\NutriApp
 build_property._RazorSourceGeneratorDebug = 
 
-[E:/Work/NutriExpertApp/NutriApp/App.razor]
+[E:/Work/NutriExpertAppProject/NutriExpertApp/NutriApp/App.razor]
 build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Work/NutriExpertApp/NutriApp/Pages/BotMessage.razor]
+[E:/Work/NutriExpertAppProject/NutriExpertApp/NutriApp/Pages/BotMessage.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQm90TWVzc2FnZS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Work/NutriExpertApp/NutriApp/Shared/_Imports.razor]
+[E:/Work/NutriExpertAppProject/NutriExpertApp/NutriApp/Shared/_Imports.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXF9JbXBvcnRzLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Work/NutriExpertApp/NutriApp/_Imports.razor]
+[E:/Work/NutriExpertAppProject/NutriExpertApp/NutriApp/_Imports.razor]
 build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Work/NutriExpertApp/NutriApp/Pages/Index.razor]
+[E:/Work/NutriExpertAppProject/NutriExpertApp/NutriApp/Pages/Index.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXgucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-b1acyx7gi3
 
-[E:/Work/NutriExpertApp/NutriApp/Shared/MainLayout.razor]
+[E:/Work/NutriExpertAppProject/NutriExpertApp/NutriApp/Shared/MainLayout.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE1haW5MYXlvdXQucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-u8nqqz512b
 
-[E:/Work/NutriExpertApp/NutriApp/Pages/Error.cshtml]
+[E:/Work/NutriExpertAppProject/NutriExpertApp/NutriApp/Pages/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Work/NutriExpertApp/NutriApp/Pages/_Host.cshtml]
+[E:/Work/NutriExpertAppProject/NutriExpertApp/NutriApp/Pages/_Host.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX0hvc3QuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Work/NutriExpertApp/NutriApp/Pages/_Layout.cshtml]
+[E:/Work/NutriExpertAppProject/NutriExpertApp/NutriApp/Pages/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX0xheW91dC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 

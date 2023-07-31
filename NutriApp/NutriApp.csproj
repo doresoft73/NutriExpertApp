@@ -13,6 +13,7 @@
     <PackageReference Include="OpenAI" Version="1.7.2" />
     <PackageReference Include="OpenAI.Net" Version="1.0.4" />
     <PackageReference Include="OpenAI.Net.Client" Version="1.0.20" />
+    <PackageReference Include="Smart.Blazor" Version="15.2.1" />
   </ItemGroup>
 
   <ItemGroup>

@@ -13,4 +13,7 @@
     <SourceRoot Include="C:\Users\777\.nuget\packages\" />
     <SourceRoot Include="C:\Program Files (x86)\Microsoft Visual Studio\Shared\NuGetPackages\" />
   </ItemGroup>
+  <ImportGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <Import Project="$(NuGetPackageRoot)smart.blazor\15.2.1\buildTransitive\Smart.Blazor.props" Condition="Exists('$(NuGetPackageRoot)smart.blazor\15.2.1\buildTransitive\Smart.Blazor.props')" />
+  </ImportGroup>
 </Project>

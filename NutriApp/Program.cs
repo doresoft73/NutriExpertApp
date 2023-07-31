@@ -5,6 +5,7 @@ using Microsoft.Azure.CognitiveServices.Vision.ComputerVision;
 using Microsoft.AspNetCore.SignalR;
 using NutriApp.Pages;
 using Microsoft.AspNetCore.Components.Server;
+using Smart.Blazor;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,6 +16,7 @@ builder.Services.AddServerSideBlazor(options =>
     options.DetailedErrors = true;
 });
 builder.Services.AddSingleton<ImageOCR>();
+builder.Services.AddSmart();
 
 var app = builder.Build();
 
